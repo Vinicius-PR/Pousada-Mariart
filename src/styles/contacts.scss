@@ -1,0 +1,68 @@
+@use "./colors.scss";
+
+.contacts {
+  max-width: 1440px;
+  &__form {
+    margin: 0 auto 2rem;
+    box-shadow: rgba(141, 54, 14, 0.322) 0px 54px 55px, rgba(155, 111, 16, 0.377) 0px -12px 30px, 
+    rgba(0, 0, 0, 0.486) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(200, 214, 73, 0.09) 0px -3px 5px;
+    border-radius: 1rem;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+
+    @media (max-width: 768px) {
+      width: 80vw;
+    }
+
+    label {
+      margin: 0.5rem 0;
+    }
+
+    input {
+      padding: 0.4rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.555);
+      background-color: rgba(49, 89, 112, 0.178);
+    }
+
+    input:hover,
+    input:focus {
+      background-color: rgba(49, 89, 112, 0.37);
+    }
+
+    &--dates {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 1rem 0;
+
+      input {
+        margin: 0.5rem 0;
+      }
+
+      label{ 
+        margin: 0.5rem;
+      }
+    }
+
+    textarea {
+      border-radius: 1rem;
+      padding: 0.5rem;
+    }
+
+    button {
+      width: 10rem;
+      margin: 1rem auto;
+      border-radius: 1rem;
+      font-size: 1.2rem;
+    }
+
+    span {
+      color: red;
+      font-size: 0.8rem;
+    }
+  }
+}

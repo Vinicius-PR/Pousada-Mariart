@@ -1,0 +1,195 @@
+@use "colors.scss";
+
+.header {
+
+  a {
+    font-weight: bold;
+  }
+
+  &__icon {
+    display: none;
+    @media (max-width: 768px) {
+        position: fixed;
+        right: 0;
+        display: block;
+        z-index: 200;
+        font-size: 2.5rem;
+        margin-right: 0.5rem;
+        margin-top: 0.5rem;
+    }
+  }
+
+  &__overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: colors.$yellow-400;
+    display: none;
+    z-index: 10;
+  }
+
+  &__overlay.open {
+    display: block;
+  }
+
+  &__nav {
+    width: 100%;
+    height: 3.7rem;
+    line-height: 4.3rem;
+
+    display: flex;
+    justify-content: space-evenly;
+    background: colors.$nav-bg;
+    text-transform: uppercase;
+    overflow: hidden;
+
+    &--logo {
+      display: flex;
+      margin: 0.35rem 0;
+      img {
+        object-fit: cover;
+        padding: 0 1rem;
+        width: 7rem;
+      }
+    }
+
+    &--links {
+      display: flex;
+
+      &__item{
+        a:link,
+        a:visited {
+          margin-right: 0.8rem;
+          padding: 0 1rem;
+          display: block;
+          position: relative;
+          transform-style: preserve-3d;
+          transform-origin: top;
+          transition: transform 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        }
+
+        a:hover,
+        a:active {
+          transform: rotateX(90deg);
+        }
+
+        a:link::after,
+        a:visited::after {
+          content: attr(data-text);
+          position: absolute;
+          background-color: colors.$brown-400;
+          left: 0;
+          bottom: -100%;
+          transform: rotateX(-90deg);
+          transform-origin: top;
+          padding: inherit;
+        }
+
+        &.active {
+          a{
+            background-color: colors.$brown-400;
+          }
+        }
+      }
+
+      // directions => downwards
+      &__item:nth-child(odd) {
+        animation: downwards 0.5s forwards;
+      }
+
+      // directions => upwards
+      &__item:nth-child(even) {
+        animation: upwards 0.5s forwards;
+      }
+
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__nav {
+
+      &--logo {
+        margin: 0 auto;
+        img {
+          padding: 0 0.5rem;
+        }
+      }
+
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 15rem;
+      height: 100vh;
+      line-height: initial;
+      flex-direction: column;
+      text-align: center;
+      z-index: 20;
+      transform: perspective(70rem) rotateY(180deg);
+      transform-origin: top left;
+      transition: transform 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+      &--links {
+        height: 70%;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        &__item {
+          animation: initial;
+
+          a:link,
+          a:visited {
+            transform-origin: left;
+            margin-right: initial;
+            padding: 1rem 0;
+            font-size: 1.1rem;
+          }
+
+          a:hover,
+          a:active {
+            transform: rotateY(90deg);
+          }
+
+          a:link::after,
+          a:visited:after {
+            top: 0;
+            bottom: 0;
+            left: 100%;
+            width: 100%;
+            transform-origin: left;
+            transform: rotateY(-90deg);
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    &.open nav {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Animations
+@keyframes upwards {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes downwards {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
