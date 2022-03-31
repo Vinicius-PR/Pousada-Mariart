@@ -2,7 +2,7 @@
 
 Code of the web site of a lodging called Pousada Mariart.
 
-## Technolages used was:
+## Technologies used was:
 
 * React
 * SCSS
