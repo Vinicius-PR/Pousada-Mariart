@@ -1,8 +1,11 @@
 import "../styles/contacts.scss";
 import { format, parseISO } from "date-fns";
+import { AiOutlineCheckCircle } from "react-icons/ai";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 import { useForm } from 'react-hook-form';
 import ptBR from 'date-fns/locale/pt-BR';
+import { useState } from "react";
 
 interface data {
   name: string,
@@ -14,6 +17,8 @@ interface data {
 }
 
 export default function Contact() {
+
+  const [statusEmail, setStatusEmail] = useState("");
 
   const { register, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
@@ -47,9 +52,9 @@ export default function Contact() {
       Data de saida: ${dateOutFormated},
       Mensagem: ${data.message}
     `;
-
-    console.log(message);
     
+    console.log(message);
+    setStatusEmail("success");
     // const message_to_send = {
     //   to: 'contato_site_pousadamariart@hotmail.com',
     //   from: 'contato_site_pousadamariart@hotmail.com',
@@ -157,6 +162,33 @@ export default function Contact() {
         
         <button type="submit">Enviar</button>
       </form>
+
+      {
+        statusEmail === "" && (
+          <div className="contacts__placeholder">
+            
+          </div>
+       )
+      }
+
+      {
+        statusEmail === "success" && (
+          <div className="contacts__success">
+            <AiOutlineCheckCircle size={30}/>
+            <p>Mensagem Enviada</p>
+          </div>
+       )
+      }
+
+      {
+        statusEmail === "error" && (
+          <div className="contacts__error">
+            <AiOutlineCloseCircle size={30}/>
+            <p>Mensagem Não Enviada</p>
+          </div>
+       )
+      }
+
     </section>
   )
 }
