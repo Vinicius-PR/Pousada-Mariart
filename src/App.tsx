@@ -25,7 +25,8 @@ function App() {
             <Gallery />
             <Location />
           </>
-        } />
+          }
+        />
 
         <Route path="about" element={<AboutUs/>} />
         <Route path="politics" element={<Politics/>} />

@@ -1,83 +1,65 @@
+import emailjs from '@emailjs/browser';
 import "../styles/contacts.scss";
-import { format, parseISO } from "date-fns";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import ptBR from 'date-fns/locale/pt-BR';
-import { useState } from "react";
+import { useState, useRef } from "react";
 
-interface data {
+import DatePicker, { registerLocale } from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+registerLocale('ptBR', ptBR);
+
+
+type data = {
   name: string,
   email: string,
   phone: string,
-  date_in: string,
-  date_out: string,
+  date_in: Date,
+  date_out: Date,
   message: string
 }
 
 export default function Contact() {
 
   const [statusEmail, setStatusEmail] = useState("");
+  const [isSendingEmail, setIsSendingEmail] = useState(false);
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      date_in: "",
-      date_out: "",
-      message: ""
-    }
-  });
+  const { register, handleSubmit, formState: { errors }, control, reset } = useForm<data>();
+
+  const form = useRef<any>();
+
+  const serviceId: string = (process.env.REACT_APP_YOUR_SERVICE_ID as string);
+  const templateId: string = (process.env.REACT_APP_YOUR_TEMPLATE_ID as string);  
+  const userId: string = (process.env.REACT_APP_YOUR_USER_ID as string);
 
   function onSubmit(data: data) {
-    const dateInFormated = data.date_in ?
-      format(parseISO(data.date_in), "dd 'de' MMMM 'de' yyyy", {
-        locale: ptBR
-      }) :
-      "Não informado";
+    setIsSendingEmail(true);
     
-    const dateOutFormated = data.date_out ?
-      format(parseISO(data.date_out), "dd 'de' MMMM 'de' yyyy", {
-        locale: ptBR
-      }) :
-      "Não informado";
-      
-    const message = `
-      Nome: ${data.name},
-      E-mail: ${data.email},
-      Telefone: ${data.phone},
-      Data de entrada: ${dateInFormated},
-      Data de saida: ${dateOutFormated},
-      Mensagem: ${data.message}
-    `;
-    
-    console.log(message);
-    setStatusEmail("success");
-    // const message_to_send = {
-    //   to: 'contato_site_pousadamariart@hotmail.com',
-    //   from: 'contato_site_pousadamariart@hotmail.com',
-    //   subject: 'Contato Site Pousada',
-    //   text: 'and easy to do anywhere, even with Node.js',
-    //   html: `
-    //     <strong>Nome:</strong> ${data.name},
-    //     <strong>E-mail:</strong> ${data.email},
-    //     <strong>Telefone:</strong> ${data.phone},
-    //     <strong>Data de entrada:</strong> ${dateInFormated},
-    //     <strong>Data de saida:</strong> ${dateOutFormated},
-    //     <strong>Mensagem:</strong> ${data.message}
-    //   `,
-    // }
+    emailjs.sendForm(
+      serviceId,
+      templateId,
+      form.current,
+      userId)
+      .then(() => {
+        setStatusEmail("success");
+        setIsSendingEmail(false);
+        reset();
+      })
+      .catch((erro) => {
+        setStatusEmail("error");
+      });
   }
 
   return (
     <section className="contacts">
+
       <h1 className="global_titles">Formulário</h1>
 
-      <form className="contacts__form" onSubmit={handleSubmit(onSubmit)}>
+      <form ref={form} className="contacts__form" onSubmit={handleSubmit(onSubmit)}>
 
-        <label>Nome</label>
+        <label>Nome*</label>
         <input
 
           {...register('name', {
@@ -87,10 +69,10 @@ export default function Contact() {
           name='name'
           placeholder='Seu nome'
         />
-        <span>{errors.name?.message}</span>
+        <span className="contacts__form--errorMessage">{errors.name?.message}</span>
         
 
-        <label>E-mail</label>
+        <label>E-mail*</label>
         <input
           {...register('email', {
               required: "E-mail obrigatório"
@@ -99,10 +81,10 @@ export default function Contact() {
           name='email'
           placeholder='Seu e-mail'
         />
-        <span>{errors.email?.message}</span>
+        <span className="contacts__form--errorMessage">{errors.email?.message}</span>
 
         
-        <label>Telefone</label>
+        <label>Telefone*</label>
         <input
           {...register('phone', {
             required: "Telefone obrigatório",
@@ -123,30 +105,55 @@ export default function Contact() {
           name='phone'
           placeholder='Telefone'
         />
-        <span>{errors.phone?.message}</span>
+        <span className="contacts__form--errorMessage">{errors.phone?.message}</span>
+
+        
         <div className="contacts__form--dates">
           <div className="contacts__form--dates__date_in">
             <label>Data de Entrada</label>
-            <input
-              {...register('date_in')}
-              type='date'
-              name='date_in'
-              lang="pt-br"
+
+            <Controller
+              name = 'date_in'
+              control={control}
+              defaultValue = {undefined}
+              render={({ field }) => (
+                <DatePicker
+                  name = "date_in"
+                  onChange={(e) => field.onChange(e)}
+                  selected={field.value}
+                  placeholderText="Data de entrada"
+                  locale="ptBR"
+                  dateFormat="d 'de' MMMM, yyyy"
+                  minDate={new Date()}
+                  autoComplete="off"
+                />
+              )}
             />
           </div>
 
           <div className="contacts__form--dates__date_out">
             <label>Data de Saida</label>
-            <input
-              {...register('date_out')}
-              type='date'
-              name='date_out'
-              lang="pt-br"
+            <Controller
+              name = 'date_out'
+              control={control}
+              defaultValue = {undefined}
+              render={({ field }) => (
+                <DatePicker
+                  name="date_out"
+                  onChange={(e) => field.onChange(e)}
+                  selected={field.value}
+                  placeholderText="Data da saida"
+                  locale="ptBR"
+                  dateFormat="d 'de' MMMM, yyyy"
+                  minDate={new Date()}
+                  autoComplete="off"
+                />
+              )}
             />
           </div>
         </div>
 
-        <label>Message</label>
+        <label>Mensagem*</label>
 
         <textarea
           {...register('message', {
@@ -157,16 +164,24 @@ export default function Contact() {
           rows={10}
         >
         </textarea>
-        <span>{errors.message?.message}</span>
+        <span className="contacts__form--errorMessage">{errors.message?.message}</span>
 
         
-        <button type="submit">Enviar</button>
+        <button className="contacts__form--button" type="submit">Enviar</button>
+        <p className="contacts__form--required"><i>* Campos obrigatórios</i></p>
       </form>
 
       {
         statusEmail === "" && (
           <div className="contacts__placeholder">
-            
+            {
+              isSendingEmail ? (
+                <>
+                  <p>Enviando Mensagem</p>
+                  <span className="spinner"></span>
+                </>
+              ) : ""
+            }
           </div>
        )
       }
@@ -184,7 +199,7 @@ export default function Contact() {
         statusEmail === "error" && (
           <div className="contacts__error">
             <AiOutlineCloseCircle size={30}/>
-            <p>Mensagem Não Enviada</p>
+            <p>Mensagem Não Enviada.</p>
           </div>
        )
       }

@@ -53,26 +53,27 @@
       padding: 0.5rem;
     }
 
-    button {
+    &--errorMessage {
+      color: red;
+      font-size: 0.8rem;
+    }
+
+    &--button {
       width: 10rem;
       margin: 1rem auto;
       border-radius: 1rem;
       font-size: 1.2rem;
     }
 
-    span {
-      color: red;
-      font-size: 0.8rem;
+    &--required {
+      font-size: 0.9rem;
     }
   }
 
   &__placeholder, &__success, &__error {
     height: 2.5rem;
-  }
-
-  &__success, &__error {
     border-radius: 2rem;
-    width: 15rem;
+    width: 16rem;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -88,5 +89,22 @@
 
   &__error {
     background-color: rgb(223, 97, 75);
+  }
+}
+
+.spinner {
+  display: inline-block;
+  border: 6px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #22a6b3;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  animation: spin 1s linear infinite;
+  margin-left: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }

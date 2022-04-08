@@ -11,7 +11,6 @@ import '../styles/header.scss'
 export default function Header() {
 
   let location = useLocation();
-  console.log(location.pathname)
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [dimensions, setDimensions] = useState({
