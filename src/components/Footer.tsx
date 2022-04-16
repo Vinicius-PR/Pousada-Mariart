@@ -39,7 +39,7 @@ export default function Footer() {
               <img src={instaImg} alt="Instagram" />
             </a>
 
-            <a href="https://www.instagram.com/pousadamariart/?hl=pt-br" target="_blank" rel="noreferrer">
+            <a href="https://www.facebook.com/Pousada-Mariart-103573365223177/?ref=py_c" target="_blank" rel="noreferrer">
               <img src={faceImg} alt="Facebook" />
             </a>
 

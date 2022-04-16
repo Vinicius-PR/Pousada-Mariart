@@ -10,4 +10,6 @@ Code of the web site of a lodging called Pousada Mariart.
 * React-hook-form
 * React-router
 * date-fns
-* send e-mail with SendGrid (coming soon).
+* send e-mail with EmailJS.
+
+[Clique here](http://www.pousadamariart.com.br/) to see the result.
