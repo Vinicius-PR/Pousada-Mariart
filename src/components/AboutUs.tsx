@@ -16,7 +16,7 @@ export default function AboutUs() {
           Tudo começou com uma loja de artesanato. Artesanato Mariart. Começamos devagar e com poucas mercadorias. O negócio foi crescendo, sempre atraindo novos clientes. Alguns acabaram até virando nossos amigos. Com o passar do tempo, começamos a construir do lado da loja. A principio seria um novo ponto para comercio. No entando, surgiu uma outra ideia. Criar uma Pousada.
         </p>
         <p>
-          Foi ai então que começou a se levantar a Pousada Mariart. Iniciamos com 5 quartos anciosos de como seria esse ramo. As pessoas foram nos conhecendo, gostaram e os 5 quartos ficou pequeno. ampliamos para 10 quartos e jaja terá mais. Hoje temos o Artesanato Mariart e também a Pousada Mariart. Dois estabelecimentos andando juntos. Graças a Deus novos clientes chegam e o círculo de amizades so aumenta.
+          Foi ai então que começou a se levantar a Pousada Mariart. Iniciamos com 5 quartos anciosos de como seria esse ramo. As pessoas foram nos conhecendo, gostaram e os 5 quartos ficou pequeno. Ampliamos para 10 quartos e finalmente para 15 quartos. Hoje temos o Artesanato Mariart e também a Pousada Mariart. Dois estabelecimentos andando juntos. Graças a Deus novos clientes chegam e o círculo de amizades so aumenta.
         </p>
         <h1 className="global_titles">Nossa Missão</h1>
         <p>
