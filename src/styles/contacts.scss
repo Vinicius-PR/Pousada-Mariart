@@ -60,9 +60,12 @@
 
     &--button {
       width: 10rem;
+      height: 2rem;
       margin: 1rem auto;
       border-radius: 1rem;
       font-size: 1.2rem;
+      cursor: pointer;
+      background-color: rgb(252, 202, 136);
     }
 
     &--required {

@@ -167,7 +167,13 @@ export default function Contact() {
         <span className="contacts__form--errorMessage">{errors.message?.message}</span>
 
         
-        <button className="contacts__form--button" type="submit">Enviar</button>
+        <button
+          className="contacts__form--button"
+          type="submit"
+          disabled = {isSendingEmail}
+        >
+          Enviar
+        </button>
         <p className="contacts__form--required"><i>* Campos obrigatórios</i></p>
       </form>
 
