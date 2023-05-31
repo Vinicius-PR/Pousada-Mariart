@@ -2,10 +2,11 @@
 
 .contacts {
   max-width: 1440px;
+
   &__form {
     margin: 0 auto 2rem;
-    box-shadow: rgba(141, 54, 14, 0.322) 0px 54px 55px, rgba(155, 111, 16, 0.377) 0px -12px 30px, 
-    rgba(0, 0, 0, 0.486) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(200, 214, 73, 0.09) 0px -3px 5px;
+    box-shadow: rgba(141, 54, 14, 0.322) 0px 54px 55px, rgba(155, 111, 16, 0.377) 0px -12px 30px,
+      rgba(0, 0, 0, 0.486) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(200, 214, 73, 0.09) 0px -3px 5px;
     border-radius: 1rem;
     padding: 1rem;
 
@@ -41,9 +42,10 @@
 
       input {
         margin: 0.5rem 0;
+        width: 100%;
       }
 
-      label{ 
+      label {
         margin: 0.5rem;
       }
     }
@@ -73,7 +75,9 @@
     }
   }
 
-  &__placeholder, &__success, &__error {
+  &__placeholder,
+  &__success,
+  &__error {
     height: 2.5rem;
     border-radius: 2rem;
     width: 16rem;
@@ -81,6 +85,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     p {
       margin-left: 1rem;
     }

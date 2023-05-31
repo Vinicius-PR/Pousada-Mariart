@@ -4,7 +4,7 @@ import "../styles/gallery.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper";
+import { Pagination, Navigation } from "swiper";
 
 // Imagens Galeria
 import store1 from "../assets/store/loja1.jpg";
@@ -18,7 +18,7 @@ export default function Store() {
 
   const pagination = {
     clickable: true,
-    renderBullet: function (index:number, className:string) {
+    renderBullet: function (index: number, className: string) {
       return '<span class="' + className + '">' + (index + 1) + "</span>";
     },
   };
@@ -53,14 +53,17 @@ export default function Store() {
           <li>e muito mais...</li>
         </ul>
       </div>
-      
 
-      <h2>Galeria</h2>
+
+      <h2>Fotos</h2>
 
       <Swiper
+        slidesPerView={1}
         pagination={pagination}
-        modules={[Pagination]}
+        navigation={true}
+        modules={[Pagination, Navigation]}
         className="mySwiper"
+        loop={true}
       >
         <SwiperSlide>
           <div className="content_swiper">

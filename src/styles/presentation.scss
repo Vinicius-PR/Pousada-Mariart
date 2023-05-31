@@ -14,13 +14,19 @@
     height: 100vh;
   }
 
+  h1,
+  h2,
+  h3 {
+    color: colors.$title
+  }
+
   &__content {
     background-color: colors.$content-bg;
     padding: 7rem 8rem;
 
     h1 {
       font-weight: 700;
-      font-size: 4.5rem;
+      font-size: 4rem;
       text-shadow: 2px 2px 3px #000000;
 
       &::after {
@@ -35,13 +41,15 @@
       }
     }
 
-    h2, h3 {
+    h2,
+    h3 {
       margin-top: 1rem;
       font-weight: 900;
     }
 
     @media (max-width: 768px) {
       padding: 5rem 2rem;
+
       h1 {
         font-size: 3rem;
       }

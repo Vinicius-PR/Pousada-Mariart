@@ -19,9 +19,9 @@ export default function Header() {
 
   useEffect(() => {
     function handleResize() {
-        setDimensions({
-            width: window.innerWidth,
-        })
+      setDimensions({
+        width: window.innerWidth,
+      })
     }
     window.addEventListener("resize", handleResize);
 
@@ -29,9 +29,9 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-      if (dimensions.width > 768 && isMenuOpen) {
-          setIsMenuOpen(false);
-      }
+    if (dimensions.width > 768 && isMenuOpen) {
+      setIsMenuOpen(false);
+    }
   }, [dimensions.width, isMenuOpen]);
 
   function handleMenuToggle() {
@@ -43,16 +43,19 @@ export default function Header() {
 
       <div className="header__icon">
         {!isMenuOpen ?
-            <BiMenu onClick={handleMenuToggle}/>
-            : <AiOutlineClose onClick={handleMenuToggle}/>
+          <BiMenu onClick={handleMenuToggle} />
+          : <AiOutlineClose onClick={handleMenuToggle} />
         }
       </div>
 
-      <div className={`${"header__overlay"} ${isMenuOpen ? "open" : ""}`}></div>
+      <div
+        className={`${"header__overlay"} ${isMenuOpen ? "open" : ""}`}
+        onClick={() => setIsMenuOpen(false)}
+      ></div>
 
       <nav className="header__nav">
         <Link to="/" className="header__nav--logo">
-          <img src={logo} alt="Pousada Logo" onClick={() => setIsMenuOpen(false)}/>
+          <img src={logo} alt="Pousada Logo" onClick={() => setIsMenuOpen(false)} />
         </Link>
 
         <ul className="header__nav--links">
@@ -68,8 +71,8 @@ export default function Header() {
           </li>
 
           <li className={`${"header__nav--links__item"}
-                          ${location.pathname === "/politics" ? "active" : ""}`}>
-            <Link to="/politics" data-text="Politicas" onClick={() => setIsMenuOpen(false)}>Politicas</Link>
+                          ${location.pathname === "/town" ? "active" : ""}`}>
+            <Link to="/town" data-text="A Cidade" onClick={() => setIsMenuOpen(false)}>A Cidade</Link>
           </li>
 
           <li className={`${"header__nav--links__item"}

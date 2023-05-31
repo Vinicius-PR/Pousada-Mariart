@@ -21,6 +21,9 @@ type data = {
   message: string
 }
 
+let dateTomorrow = new Date()
+dateTomorrow.setDate(dateTomorrow.getDate() + 1)
+
 export default function Contact() {
 
   const [statusEmail, setStatusEmail] = useState("");
@@ -31,12 +34,12 @@ export default function Contact() {
   const form = useRef<any>();
 
   const serviceId: string = (process.env.REACT_APP_YOUR_SERVICE_ID as string);
-  const templateId: string = (process.env.REACT_APP_YOUR_TEMPLATE_ID as string);  
+  const templateId: string = (process.env.REACT_APP_YOUR_TEMPLATE_ID as string);
   const userId: string = (process.env.REACT_APP_YOUR_USER_ID as string);
 
   function onSubmit(data: data) {
     setIsSendingEmail(true);
-    
+
     emailjs.sendForm(
       serviceId,
       templateId,
@@ -49,6 +52,7 @@ export default function Contact() {
       })
       .catch((erro) => {
         setStatusEmail("error");
+        console.log(erro)
       });
   }
 
@@ -63,19 +67,19 @@ export default function Contact() {
         <input
 
           {...register('name', {
-              required: "Nome obrigatório"
+            required: "Nome obrigatório"
           })}
           type='text'
           name='name'
           placeholder='Seu nome'
         />
         <span className="contacts__form--errorMessage">{errors.name?.message}</span>
-        
+
 
         <label>E-mail*</label>
         <input
           {...register('email', {
-              required: "E-mail obrigatório"
+            required: "E-mail obrigatório"
           })}
           type='email'
           name='email'
@@ -83,7 +87,7 @@ export default function Contact() {
         />
         <span className="contacts__form--errorMessage">{errors.email?.message}</span>
 
-        
+
         <label>Telefone*</label>
         <input
           {...register('phone', {
@@ -107,23 +111,23 @@ export default function Contact() {
         />
         <span className="contacts__form--errorMessage">{errors.phone?.message}</span>
 
-        
+
         <div className="contacts__form--dates">
           <div className="contacts__form--dates__date_in">
             <label>Data de Entrada</label>
 
             <Controller
-              name = 'date_in'
+              name='date_in'
               control={control}
-              defaultValue = {undefined}
+              defaultValue={undefined}
               render={({ field }) => (
                 <DatePicker
-                  name = "date_in"
+                  name="date_in"
                   onChange={(e) => field.onChange(e)}
                   selected={field.value}
                   placeholderText="Data de entrada"
                   locale="ptBR"
-                  dateFormat="d 'de' MMMM, yyyy"
+                  dateFormat="d 'de' MMMM, yyyy '-' EEEE"
                   minDate={new Date()}
                   autoComplete="off"
                 />
@@ -134,9 +138,9 @@ export default function Contact() {
           <div className="contacts__form--dates__date_out">
             <label>Data de Saida</label>
             <Controller
-              name = 'date_out'
+              name='date_out'
               control={control}
-              defaultValue = {undefined}
+              defaultValue={undefined}
               render={({ field }) => (
                 <DatePicker
                   name="date_out"
@@ -144,8 +148,8 @@ export default function Contact() {
                   selected={field.value}
                   placeholderText="Data da saida"
                   locale="ptBR"
-                  dateFormat="d 'de' MMMM, yyyy"
-                  minDate={new Date()}
+                  dateFormat="d 'de' MMMM, yyyy '-' EEEE"
+                  minDate={dateTomorrow}
                   autoComplete="off"
                 />
               )}
@@ -166,11 +170,11 @@ export default function Contact() {
         </textarea>
         <span className="contacts__form--errorMessage">{errors.message?.message}</span>
 
-        
+
         <button
           className="contacts__form--button"
           type="submit"
-          disabled = {isSendingEmail}
+          disabled={isSendingEmail}
         >
           Enviar
         </button>
@@ -189,25 +193,25 @@ export default function Contact() {
               ) : ""
             }
           </div>
-       )
+        )
       }
 
       {
         statusEmail === "success" && (
           <div className="contacts__success">
-            <AiOutlineCheckCircle size={30}/>
+            <AiOutlineCheckCircle size={30} />
             <p>Mensagem Enviada</p>
           </div>
-       )
+        )
       }
 
       {
         statusEmail === "error" && (
           <div className="contacts__error">
-            <AiOutlineCloseCircle size={30}/>
+            <AiOutlineCloseCircle size={30} />
             <p>Mensagem Não Enviada.</p>
           </div>
-       )
+        )
       }
 
     </section>

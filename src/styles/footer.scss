@@ -1,8 +1,14 @@
 @use "./colors";
 
 .footer {
-  background-color: colors.$yellow-950;
+  background-color: colors.$brown-400;
   margin-top: 2rem;
+
+  svg {
+    width: 3rem;
+    height: 3rem;
+  }
+
   &__content {
     margin: 0 auto;
     max-width: 1440px;
@@ -11,42 +17,43 @@
     align-items: flex-start;
     flex-wrap: wrap;
     padding: 2rem;
+    color: white;
 
     img {
       width: 3rem;
       height: 3rem;
-      margin-right: 1rem;
     }
 
-    &--address, &--social, &--contact {
+    &--address,
+    &--social,
+    &--contact {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       margin: 1rem auto;
-      
+
       &__title {
         margin-bottom: 1rem;
-      }
-    }
-
-    &--address {
-      &__title {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        color: colors.$yellow-950;
       }
     }
 
     &--social {
+      &__icons {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+      }
+
       &__reservation {
         margin-top: 1rem;
-        
+
         a:link,
         a:visited {
           font-size: 1.1rem;
           font-weight: bold;
-          background-color: colors.$yellow-200;
+          background-color: colors.$yellow-600;
           padding: 0 3rem;
           border-radius: 1.5rem;
           position: relative;
@@ -85,7 +92,9 @@
     }
 
     &--contact {
-      &__whatsapp, &__email {
+
+      &__whatsapp,
+      &__email {
         display: flex;
         align-items: center;
       }

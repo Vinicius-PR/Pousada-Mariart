@@ -21,11 +21,10 @@ li {
 }
 
 a:link,
-a:visited{
+a:visited {
   text-decoration: none;
   color: white;
-  font-size: 1rem;
-
+  font-size: 0.8rem;
 }
 
 body {
@@ -33,24 +32,18 @@ body {
   margin: 0 auto;
 }
 
-h1, h2, h3 {
-  color: colors.$title;
+h1,
+h2 {
+  // color: colors.$title;
   text-align: center;
 }
 
 p {
-  font-size: 1.1rem;
-
-  @media (max-width:768px) {
-    font-size: 1rem;
-  }
+  font-size: 1rem;
 }
 
 .global_titles {
+  color: colors.$title;
   padding: 2rem 0;
-  font-size: 2.2rem;
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
-  }
+  font-size: 2rem;
 }

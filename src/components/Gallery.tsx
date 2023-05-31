@@ -1,7 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper";
+import "swiper/css/navigation";
+import { Pagination, Navigation } from "swiper";
 
 // Images Galeria
 import Img1 from "../assets/gallery/gallery 1.jpg"
@@ -20,7 +21,7 @@ import "../styles/gallery.scss";
 export default function Gallery() {
   const pagination = {
     clickable: true,
-    renderBullet: function (index:number, className:string) {
+    renderBullet: function (index: number, className: string) {
       return '<span class="' + className + '">' + (index + 1) + "</span>";
     },
   };
@@ -29,66 +30,69 @@ export default function Gallery() {
     <>
       <h1 className="global_titles">Galeria</h1>
       <Swiper
+        slidesPerView={1}
         pagination={pagination}
-        modules={[Pagination]}
+        navigation={true}
+        modules={[Pagination, Navigation]}
         className="mySwiper"
+        loop={true}
       >
         <SwiperSlide>
-          <div className="content_swiper">
+          <div>
             <img src={Img1} alt="galeria imagem 1" />
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="content_swiper">
+          <div>
             <img src={Img2} alt="galeria imagem 2" />
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="content_swiper">
+          <div>
             <img src={Img3} alt="galeria imagem 3" />
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="content_swiper">
+          <div>
             <img src={Img4} alt="galeria imagem 4" />
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="content_swiper">
+          <div>
             <img src={Img5} alt="galeria imagem 5" />
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="content_swiper">
+          <div>
             <img src={Img6} alt="galeria imagem 6" />
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="content_swiper">
+          <div>
             <img src={Img7} alt="galeria imagem 7" />
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="content_swiper">
+          <div>
             <img src={Img8} alt="galeria imagem 8" />
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="content_swiper">
+          <div>
             <img src={Img9} alt="galeria imagem 9" />
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="content_swiper">
+          <div>
             <img src={Img10} alt="galeria imagem 10" />
           </div>
         </SwiperSlide>

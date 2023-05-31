@@ -8,14 +8,15 @@
 
   &__icon {
     display: none;
+
     @media (max-width: 768px) {
-        position: fixed;
-        right: 0;
-        display: block;
-        z-index: 200;
-        font-size: 2.5rem;
-        margin-right: 0.5rem;
-        margin-top: 0.5rem;
+      position: fixed;
+      right: 0;
+      display: block;
+      z-index: 200;
+      font-size: 2.5rem;
+      margin-right: 0.5rem;
+      margin-top: 0.5rem;
     }
   }
 
@@ -24,6 +25,7 @@
     height: 100vh;
     position: fixed;
     background-color: colors.$yellow-400;
+    opacity: 0.4;
     display: none;
     z-index: 10;
   }
@@ -46,6 +48,7 @@
     &--logo {
       display: flex;
       margin: 0.35rem 0;
+
       img {
         object-fit: cover;
         padding: 0 1rem;
@@ -56,7 +59,8 @@
     &--links {
       display: flex;
 
-      &__item{
+      &__item {
+
         a:link,
         a:visited {
           margin-right: 0.8rem;
@@ -86,7 +90,7 @@
         }
 
         &.active {
-          a{
+          a {
             background-color: colors.$brown-400;
           }
         }
@@ -110,6 +114,7 @@
 
       &--logo {
         margin: 0 auto;
+
         img {
           padding: 0 0.5rem;
         }
