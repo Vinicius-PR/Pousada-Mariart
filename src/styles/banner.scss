@@ -1,0 +1,50 @@
+@use './colors';
+
+.banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: white;
+  max-height: 600px;
+  overflow: hidden;
+
+  h2,
+  h1 {
+    color: white;
+  }
+
+  &--img {
+    background-image: url("../assets/services/coffee.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+
+    @media (max-width: 768px) {
+      height: 250px;
+    }
+  }
+
+  &--text {
+    text-align: center;
+    padding: 1rem 6rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: colors.$yellow-950;
+
+    a:hover {
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    @media (max-width: 1040px) {
+      padding: 1rem 3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    max-height: fit-content;
+  }
+}

@@ -7,18 +7,29 @@
   &--card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    gap: 1rem;
-    padding: 2rem 4rem;
     text-align: center;
+    gap: 1rem;
+    padding: 1rem 6rem;
     background-color: colors.$yellow-950;
     color: white;
+    height: 100%;
 
     img {
       border-radius: 50%;
-      width: 10rem;
-      height: 10rem;
+      width: 8rem;
+      height: 8rem;
+    }
+
+    @media (max-width: 1040px) {
+      padding: 1rem 3rem;
+    }
+  }
+
+  &--map {
+    @media (min-width: 1440px) {
+      height: 400px;
     }
   }
 

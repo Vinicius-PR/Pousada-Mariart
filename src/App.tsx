@@ -11,6 +11,7 @@ import Presentation from './components/Presentation';
 import Scroll from "./components/Scroll";
 import Store from './components/Store';
 import WelcomeServices from "./components/WelcomeServices";
+import Banner from "./components/Banner";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <>
             <Presentation />
             <WelcomeServices />
+            <Banner />
             <Gallery />
             <Location />
           </>
