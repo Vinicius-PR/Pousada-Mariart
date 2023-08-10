@@ -124,7 +124,7 @@ export default function Contact() {
                 <DatePicker
                   name="date_in"
                   onChange={(e) => field.onChange(e)}
-                  onFocus={e => e.target.blur()}
+                  onFocus={e => e.target.blur()} // To avoid keyboard onFocus.
                   selected={field.value}
                   placeholderText="Data de entrada"
                   locale="ptBR"
@@ -146,6 +146,7 @@ export default function Contact() {
                 <DatePicker
                   name="date_out"
                   onChange={(e) => field.onChange(e)}
+                  onFocus={e => e.target.blur()} // To avoid keyboard onFocus.
                   selected={field.value}
                   placeholderText="Data da saida"
                   locale="ptBR"
