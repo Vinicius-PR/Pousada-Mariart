@@ -124,13 +124,13 @@ export default function Contact() {
                 <DatePicker
                   name="date_in"
                   onChange={(e) => field.onChange(e)}
+                  onFocus={e => e.target.blur()}
                   selected={field.value}
                   placeholderText="Data de entrada"
                   locale="ptBR"
                   dateFormat="d 'de' MMMM, yyyy '-' EEEE"
                   minDate={new Date()}
                   autoComplete="off"
-                  readOnly={true}
                 />
               )}
             />
