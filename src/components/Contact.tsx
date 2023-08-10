@@ -90,6 +90,7 @@ export default function Contact() {
 
         <label>Telefone*</label>
         <input
+          inputMode='tel'
           {...register('phone', {
             required: "Telefone obrigatório",
             minLength: {
