@@ -81,6 +81,7 @@ export default function Contact() {
           {...register('email', {
             required: "E-mail obrigatório"
           })}
+          inputMode='email'
           type='email'
           name='email'
           placeholder='Seu e-mail'
