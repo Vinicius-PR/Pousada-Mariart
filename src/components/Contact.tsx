@@ -130,6 +130,7 @@ export default function Contact() {
                   dateFormat="d 'de' MMMM, yyyy '-' EEEE"
                   minDate={new Date()}
                   autoComplete="off"
+                  readOnly={true}
                 />
               )}
             />
