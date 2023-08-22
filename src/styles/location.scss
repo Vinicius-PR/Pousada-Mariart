@@ -27,12 +27,6 @@
     }
   }
 
-  &--map {
-    @media (min-width: 1440px) {
-      height: 400px;
-    }
-  }
-
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
