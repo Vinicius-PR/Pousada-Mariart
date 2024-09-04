@@ -1,59 +1,40 @@
-import emailjs from '@emailjs/browser';
 import "../styles/contacts.scss";
-import { AiOutlineCheckCircle } from "react-icons/ai";
-import { AiOutlineCloseCircle } from "react-icons/ai";
+import { useState } from "react";
 
-import { useForm, Controller } from 'react-hook-form';
-import ptBR from 'date-fns/locale/pt-BR';
-import { useState, useRef } from "react";
+import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 registerLocale('ptBR', ptBR);
-
-
-type data = {
-  name: string,
-  email: string,
-  phone: string,
-  date_in: Date,
-  date_out: Date,
-  message: string
-}
 
 let dateTomorrow = new Date()
 dateTomorrow.setDate(dateTomorrow.getDate() + 1)
 
 export default function Contact() {
 
-  const [statusEmail, setStatusEmail] = useState("");
-  const [isSendingEmail, setIsSendingEmail] = useState(false);
+  const [name, setName] = useState("")
+  const [dateIn, setDateIn] = useState("")
+  const [dateOut, setDateOut] = useState("")
+  const [message, setMessage] = useState("")
 
-  const { register, handleSubmit, formState: { errors }, control, reset } = useForm<data>();
+  const [dateInPicker, setDateInPicker] = useState<Date>()
+  const [dateOutPicker, setDateOutPicker] = useState<Date>()
 
-  const form = useRef<any>();
+  function handleClick() {
+    const whatsappMessage = `Ola, meu nome é *${name}*, eu vim do seu site.
 
-  const serviceId: string = (process.env.REACT_APP_YOUR_SERVICE_ID as string);
-  const templateId: string = (process.env.REACT_APP_YOUR_TEMPLATE_ID as string);
-  const userId: string = (process.env.REACT_APP_YOUR_USER_ID as string);
+      Gostaria de olhar disponibilidade para:
 
-  function onSubmit(data: data) {
-    setIsSendingEmail(true);
+      *Data de entrada:* ${dateIn}
+      *Data de saida:* ${dateOut}
 
-    emailjs.sendForm(
-      serviceId,
-      templateId,
-      form.current,
-      userId)
-      .then(() => {
-        setStatusEmail("success");
-        setIsSendingEmail(false);
-        reset();
-      })
-      .catch((erro) => {
-        setStatusEmail("error");
-        console.log(erro)
-      });
+      *Mensagem:* ${message.slice(0, 100)}`;
+
+    const encodedWhatsappMessage = encodeURIComponent(whatsappMessage)
+    console.log('whatsappMessage', encodedWhatsappMessage)
+    
+    window.open(`https://api.whatsapp.com/send?phone=5532999349064&text=${encodedWhatsappMessage}`)
   }
 
   return (
@@ -61,163 +42,100 @@ export default function Contact() {
 
       <h1 className="global_titles">Formulário</h1>
 
-      <form ref={form} className="contacts__form" onSubmit={handleSubmit(onSubmit)}>
+      <form className="contacts__form">
 
-        <label>Nome*</label>
+        <label htmlFor='name'><strong>Nome*</strong></label>
         <input
-
-          {...register('name', {
-            required: "Nome obrigatório"
-          })}
           type='text'
           name='name'
+          id='name'
           placeholder='Seu nome'
+          onChange={(event) => setName(event.target.value)}
         />
-        <span className="contacts__form--errorMessage">{errors.name?.message}</span>
-
-
-        <label>E-mail*</label>
-        <input
-          {...register('email', {
-            required: "E-mail obrigatório"
-          })}
-          inputMode='email'
-          type='email'
-          name='email'
-          placeholder='Seu e-mail'
-        />
-        <span className="contacts__form--errorMessage">{errors.email?.message}</span>
-
-
-        <label>Telefone*</label>
-        <input
-          inputMode='tel'
-          {...register('phone', {
-            required: "Telefone obrigatório",
-            minLength: {
-              value: 15,
-              message: "Telefone incompleto"
-            },
-            onChange: (e) => {
-              e.target.value = e.target.value
-                .replace(/(\D)/g, "")
-                .replace(/(\d{2})(\d{1})/, "($1) $2")
-                .replace(/(\d{4})(\d{1})/, "$1-$2")
-                .replace(/(\d{4})-(\d{1})(\d{4})/, "$1$2-$3")
-                .replace(/(-\d{4})\d+?$/, "$1")
-            }
-          })}
-          type='phone'
-          name='phone'
-          placeholder='Telefone'
-        />
-        <span className="contacts__form--errorMessage">{errors.phone?.message}</span>
-
+        <span className="contacts__form--errorMessage"></span>
 
         <div className="contacts__form--dates">
           <div className="contacts__form--dates__date_in">
-            <label>Data de Entrada</label>
-
-            <Controller
+            <label htmlFor='date_in'><strong>Data de Entrada*</strong></label>
+            <DatePicker
               name='date_in'
-              control={control}
-              defaultValue={undefined}
-              render={({ field }) => (
-                <DatePicker
-                  name="date_in"
-                  onChange={(e) => field.onChange(e)}
-                  onFocus={e => e.target.blur()} // To avoid keyboard onFocus.
-                  selected={field.value}
-                  placeholderText="Data de entrada"
-                  locale="ptBR"
-                  dateFormat="d 'de' MMMM, yyyy '-' EEEE"
-                  minDate={new Date()}
-                  autoComplete="off"
-                />
-              )}
+              id='date_in'
+              onChange={(e) => {
+                if(e == null) {
+                  setDateIn("Não Definido - Error")
+                  return
+                }
+                const date = new Date(e.getTime())
+                setDateInPicker(date)
+                const formattedDate = format(date, "d 'de' MMMM, yyyy '-' EEEE", { locale: ptBR });
+                setDateIn(formattedDate)
+              }}
+              onFocus={e => e.target.blur()} // To avoid keyboard onFocus.
+              selected={dateInPicker}
+              placeholderText="Data de entrada"
+              locale="ptBR"
+              dateFormat="d 'de' MMMM, yyyy '-' EEEE"
+              minDate={new Date()}
+              autoComplete="off"
             />
           </div>
 
           <div className="contacts__form--dates__date_out">
-            <label>Data de Saida</label>
-            <Controller
-              name='date_out'
-              control={control}
-              defaultValue={undefined}
-              render={({ field }) => (
-                <DatePicker
-                  name="date_out"
-                  onChange={(e) => field.onChange(e)}
-                  onFocus={e => e.target.blur()} // To avoid keyboard onFocus.
-                  selected={field.value}
-                  placeholderText="Data da saida"
-                  locale="ptBR"
-                  dateFormat="d 'de' MMMM, yyyy '-' EEEE"
-                  minDate={dateTomorrow}
-                  autoComplete="off"
-                />
-              )}
+            <label htmlFor='date_out'><strong>Data de Saida*</strong></label>
+            <DatePicker
+              name="date_out"
+              id="date_out"
+              onChange={(e) => {
+                if(e == null) {
+                  setDateOut("Não Definido - Error")
+                  return
+                }
+                const date = new Date(e.getTime())
+                setDateOutPicker(date)
+                const formattedDate = format(date, "d 'de' MMMM, yyyy '-' EEEE", { locale: ptBR });
+                setDateOut(formattedDate)
+              }}
+              onFocus={e => e.target.blur()} // To avoid keyboard onFocus.
+              selected={dateOutPicker}
+              placeholderText="Data da saida"
+              locale="ptBR"
+              dateFormat="d 'de' MMMM, yyyy '-' EEEE"
+              minDate={dateTomorrow}
+              autoComplete="off"
             />
           </div>
         </div>
-
-        <label>Mensagem*</label>
+        
+        <label htmlFor="message"><strong>Mensagem*</strong></label>
+        <p>Me conte mais sobre a sua estadia. Se é para casal ou casal com filhos...*</p>
 
         <textarea
-          {...register('message', {
-            required: "Mensagem obrigatório"
-          })}
           name='message'
+          id='message'
           placeholder='Sua mensagem'
-          rows={10}
+          rows={4}
+          maxLength={100}
+          onChange={(e) => setMessage(e.target.value)}
         >
         </textarea>
-        <span className="contacts__form--errorMessage">{errors.message?.message}</span>
+        <div className="the-count">
+          <span id="current">{message.length}</span>
+          <span id="maximum">/ 100</span>
+        </div>
+        <span className="contacts__form--errorMessage"></span>
 
 
         <button
           className="contacts__form--button"
-          type="submit"
-          disabled={isSendingEmail}
+          type="button"
+          onClick={handleClick}
+          disabled={name === '' || dateIn === '' || dateOut === '' || message === ''}
         >
           Enviar
         </button>
         <p className="contacts__form--required"><i>* Campos obrigatórios</i></p>
+
       </form>
-
-      {
-        statusEmail === "" && (
-          <div className="contacts__placeholder">
-            {
-              isSendingEmail ? (
-                <>
-                  <p>Enviando Mensagem</p>
-                  <span className="spinner"></span>
-                </>
-              ) : ""
-            }
-          </div>
-        )
-      }
-
-      {
-        statusEmail === "success" && (
-          <div className="contacts__success">
-            <AiOutlineCheckCircle size={30} />
-            <p>Mensagem Enviada</p>
-          </div>
-        )
-      }
-
-      {
-        statusEmail === "error" && (
-          <div className="contacts__error">
-            <AiOutlineCloseCircle size={30} />
-            <p>Mensagem Não Enviada.</p>
-          </div>
-        )
-      }
-
     </section>
   )
 }
