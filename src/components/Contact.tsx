@@ -23,7 +23,7 @@ export default function Contact() {
 
   function handleClick() {
 
-    const whatsappMessage = `Ola, meu nome é *${name}*, eu vim do seu site. Gostaria de olhar disponibilidade para:\n\n*Data de entrada:* ${dateIn}\n\n*Data de saida:* ${dateOut}\n\n*Mensagem:* ${message.slice(0, 100)}`
+    const whatsappMessage = `Ola, meu nome é *${name.trim()}*, eu vim do seu site. Gostaria de olhar disponibilidade para:\n\n*Data de entrada:* ${dateIn}\n\n*Data de saida:* ${dateOut}\n\n*Mensagem:* ${message.slice(0, 100)}`
 
     const encodedWhatsappMessage = encodeURIComponent(whatsappMessage)
     console.log('whatsappMessage', encodedWhatsappMessage)
