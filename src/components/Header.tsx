@@ -5,6 +5,7 @@ import { BiMenu } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 
 import logo from "../assets/Pousada-logo.jpg"
+import bedIcon from "../assets/bed-icon.png"
 import '../styles/header.scss'
 
 
@@ -28,14 +29,16 @@ export default function Header() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // useEffect used to close the menu if the width dimension change
   useEffect(() => {
-    if (dimensions.width > 768 && isMenuOpen) {
+    if (dimensions.width > 660 && isMenuOpen) {
       setIsMenuOpen(false);
     }
   }, [dimensions.width, isMenuOpen]);
 
   function handleMenuToggle() {
     setIsMenuOpen((v) => !v);
+    console.log('isMenuOpen ', isMenuOpen)
   }
 
   return (
@@ -48,44 +51,39 @@ export default function Header() {
         }
       </div>
 
-      <div
-        className={`${"header__overlay"} ${isMenuOpen ? "open" : ""}`}
-        onClick={() => setIsMenuOpen(false)}
-      ></div>
+      <nav className={`${"header__nav"} ${isMenuOpen ? "open" : ""}`}>
+        <div className='header__title'>
+          <Link to="/">
+            <img src={bedIcon} alt="Pousada Logo" onClick={() => setIsMenuOpen(false)} />
+          </Link>
 
-      <nav className="header__nav">
-        <Link to="/" className="header__nav--logo">
-          <img src={logo} alt="Pousada Logo" onClick={() => setIsMenuOpen(false)} />
-        </Link>
+          <h3 className='heading-3 bold'>
+            POUSADA <br/> MARIART
+          </h3>
+        </div>
 
-        <ul className="header__nav--links">
+        <ul className="header__links">
 
-          <li className={`${"header__nav--links__item"} 
-                          ${location.pathname === "/" ? "active" : ""}`}>
-            <Link to="/" data-text="Home" onClick={() => setIsMenuOpen(false)}>Home</Link>
+          <li className="header__links-item link-font">
+            <Link to="/" data-text="Inicio" onClick={() => setIsMenuOpen(false)}>Inicio</Link>
           </li>
 
-          <li className={`${"header__nav--links__item"}
-                          ${location.pathname === "/about" ? "active" : ""}`}>
-            <Link to="/about" data-text="Sobre nos" onClick={() => setIsMenuOpen(false)}>Sobre nos</Link>
+          <li className="header__links-item link-font">
+            <Link to="/location" data-text="Localização" onClick={() => setIsMenuOpen(false)}>Localização</Link>
           </li>
 
-          <li className={`${"header__nav--links__item"}
-                          ${location.pathname === "/town" ? "active" : ""}`}>
-            <Link to="/town" data-text="A Cidade" onClick={() => setIsMenuOpen(false)}>A Cidade</Link>
+          <li className="header__links-item link-font">
+            <Link to="/events" data-text="Eventos" onClick={() => setIsMenuOpen(false)}>Eventos</Link>
           </li>
 
-          <li className={`${"header__nav--links__item"}
-                          ${location.pathname === "/store" ? "active" : ""}`}>
-            <Link to="/store" data-text="Nossa Loja" onClick={() => setIsMenuOpen(false)}>Nossa Loja</Link>
+          <li className="header__links-item link-font">
+            <Link to="/town" data-text="Cidade" onClick={() => setIsMenuOpen(false)}>Cidade</Link>
           </li>
 
-          <li className={`${"header__nav--links__item"}
-                          ${location.pathname === "/contact" ? "active" : ""}`}>
-            <Link to="/contact" data-text="Contatos" onClick={() => setIsMenuOpen(false)}>Contatos</Link>
+          <li className="header__links-item link-font">
+            <Link to="/contact" data-text="Contato" onClick={() => setIsMenuOpen(false)}>Contato</Link>
           </li>
         </ul>
-
       </nav>
     </header>
   )

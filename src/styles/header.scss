@@ -2,14 +2,17 @@
 
 .header {
 
-  a {
-    font-weight: bold;
+  border-bottom: 1px solid black;
+  padding: 0 3.75rem;
+
+  @media (max-width: 910px) {
+    padding: 0 1rem;
   }
 
   &__icon {
     display: none;
 
-    @media (max-width: 768px) {
+    @media (max-width: 660px) {
       position: fixed;
       right: 0;
       display: block;
@@ -20,181 +23,112 @@
     }
   }
 
-  &__overlay {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    background-color: colors.$yellow-400;
-    opacity: 0.4;
-    display: none;
-    z-index: 10;
-  }
-
-  &__overlay.open {
-    display: block;
-  }
-
   &__nav {
     width: 100%;
-    height: 3.7rem;
-    line-height: 4.3rem;
-
+    height: 7rem;
     display: flex;
-    justify-content: space-evenly;
-    background: colors.$nav-bg;
-    text-transform: uppercase;
-    overflow: hidden;
+    align-items: center;
+    background: colors.$white;
 
-    &--logo {
-      display: flex;
-      margin: 0.35rem 0;
-
-      img {
-        object-fit: cover;
-        padding: 0 1rem;
-        width: 7rem;
-      }
-    }
-
-    &--links {
-      display: flex;
-
-      &__item {
-
-        a:link,
-        a:visited {
-          margin-right: 0.8rem;
-          padding: 0 1rem;
-          display: block;
-          position: relative;
-          transform-style: preserve-3d;
-          transform-origin: top;
-          transition: transform 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-        }
-
-        a:hover,
-        a:active {
-          transform: rotateX(90deg);
-        }
-
-        a:link::after,
-        a:visited::after {
-          content: attr(data-text);
-          position: absolute;
-          background-color: colors.$brown-400;
-          left: 0;
-          bottom: -100%;
-          transform: rotateX(-90deg);
-          transform-origin: top;
-          padding: inherit;
-        }
-
-        &.active {
-          a {
-            background-color: colors.$brown-400;
-          }
-        }
-      }
-
-      // directions => downwards
-      &__item:nth-child(odd) {
-        animation: downwards 0.5s forwards;
-      }
-
-      // directions => upwards
-      &__item:nth-child(even) {
-        animation: upwards 0.5s forwards;
-      }
-
-    }
-  }
-
-  @media (max-width: 768px) {
-    &__nav {
-
-      &--logo {
-        margin: 0 auto;
-
-        img {
-          padding: 0 0.5rem;
-        }
-      }
-
+    @media (max-width: 660px) {
+      padding-top: 3rem;
       position: fixed;
       top: 0;
       left: 0;
-      width: 15rem;
+      width: 100vw;
       height: 100vh;
-      line-height: initial;
       flex-direction: column;
       text-align: center;
       z-index: 20;
       transform: perspective(70rem) rotateY(180deg);
       transform-origin: top left;
       transition: transform 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+      background-color: colors.$light-gray;
 
-      &--links {
-        height: 70%;
-        flex-direction: column;
-        justify-content: space-evenly;
+      &.open {
+        transform: translateY(0);
+      }
+    }
+  }
 
-        &__item {
-          animation: initial;
+  &__title {
+    display: flex;
+    gap: 2.5rem;
+    text-align: center;
+    align-items: center;
 
-          a:link,
-          a:visited {
-            transform-origin: left;
-            margin-right: initial;
-            padding: 1rem 0;
-            font-size: 1.1rem;
-          }
+    img {
+      object-fit: cover;
+      width: 5rem;
 
-          a:hover,
-          a:active {
-            transform: rotateY(90deg);
-          }
+      @media (max-width: 810px) {
+        width: 4rem;
+      }
 
-          a:link::after,
-          a:visited:after {
-            top: 0;
-            bottom: 0;
-            left: 100%;
-            width: 100%;
-            transform-origin: left;
-            transform: rotateY(-90deg);
-            margin-right: 0;
-          }
-        }
+      @media (max-width: 660px) {
+        width: 6rem;
       }
     }
 
-    &.open nav {
-      transform: translateY(0);
+    @media (max-width: 1060px) {
+      gap: 1rem;
+    }
+
+    @media (max-width: 810px) {
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 660px) {
+      flex-direction: column;
+      gap: 1.5rem;
+
+      h3 {
+        font-size: 1.5rem;
+      }
     }
   }
-}
 
-// Animations
-@keyframes upwards {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    margin-left: 8.125rem;
+  
+    @media (max-width: 1060px) {
+      margin-left: 2rem;
+    }
 
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+    @media (max-width: 810px) {
+      margin-left: 1rem;
+    }
 
-@keyframes downwards {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
+    @media (max-width: 660px) {
+      flex-direction: column;
+      justify-content: center;
+      gap: 3rem;
+    }
 
-  to {
-    transform: translateY(0);
-    opacity: 1;
+    &-item {
+      background-color: colors.$orange-brown;
+      padding: 0.625rem 1.25rem;
+      border-radius: 10px;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: colors.$caramel-brown;
+      }
+
+      &:active {
+        background-color: colors.$dark-brown;
+      }
+
+      @media (max-width: 810px) {
+        padding: 0.4rem 1rem;
+      }
+
+      @media (max-width: 660px) {
+        padding: 0.625rem 1.25rem;
+      }
+    }
   }
 }

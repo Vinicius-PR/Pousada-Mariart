@@ -21,11 +21,11 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <Presentation />
+            {/* <Presentation />
             <WelcomeServices />
             <Banner />
             <Gallery />
-            <Location />
+            <Location /> */}
           </>
         }
         />
@@ -36,7 +36,7 @@ function App() {
         <Route path="contact" element={<Contact />} />
       </Routes>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
