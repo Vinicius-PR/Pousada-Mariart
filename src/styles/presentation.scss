@@ -1,58 +1,53 @@
 @use "./colors";
 
 .presentation {
-  height: calc(100vh - 3.7rem);
-  background-image: url("../assets/presentation.jpg");
+  text-align: center;
+
+  &__title {   
+    margin-top: 2.375rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+}
+
+.slide {
+  height: 31.25rem;
+  width: 100%;
   background-position: center;
   background-size: cover;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 3rem;
+}
 
-  @media (max-width: 768px) {
-    height: 100vh;
+.card {
+  background-color: rgba(74, 65, 60, 0.9);
+  color: white;
+  max-width: 28.125rem;
+  margin: 0 1rem;
+  padding: 1rem 1rem 2rem;
+  border-radius: 25px;
+
+  h2 {
+    margin-bottom: 1.875rem;
   }
+}
 
-  h1,
-  h2,
-  h3 {
-    color: colors.$title
-  }
+.mySwiper {
+  height: 31.25rem;
+}
 
-  &__content {
-    background-color: colors.$content-bg;
-    padding: 7rem 8rem;
+.first-slide {
+  background-image: url("../assets/presentation/presentation1.jpg");
+}
 
-    h1 {
-      font-weight: 700;
-      font-size: 4rem;
-      text-shadow: 2px 2px 3px #000000;
+.second-slide {
+  background-image: url("../assets/presentation/presentation2.jpg");
+}
 
-      &::after {
-        content: "";
-        margin: 0 auto;
-        display: block;
-        height: 0.5rem;
-        width: 50%;
-        bottom: 0;
-        right: 0;
-        background-color: colors.$title-line;
-      }
-    }
-
-    h2,
-    h3 {
-      margin-top: 1rem;
-      font-weight: 900;
-    }
-
-    @media (max-width: 768px) {
-      padding: 5rem 2rem;
-
-      h1 {
-        font-size: 3rem;
-      }
-    }
-  }
+.third-slide {
+  background-image: url("../assets/presentation/presentation3.jpg");
 }

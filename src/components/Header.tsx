@@ -1,17 +1,14 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from 'react'
+import { Link } from "react-router-dom"
 
-import { BiMenu } from "react-icons/bi";
-import { AiOutlineClose } from "react-icons/ai";
+import { BiMenu } from "react-icons/bi"
+import { AiOutlineClose } from "react-icons/ai"
 
-import logo from "../assets/Pousada-logo.jpg"
 import bedIcon from "../assets/bed-icon.png"
 import '../styles/header.scss'
 
 
 export default function Header() {
-
-  let location = useLocation();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [dimensions, setDimensions] = useState({
