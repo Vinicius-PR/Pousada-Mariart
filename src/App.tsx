@@ -10,7 +10,7 @@ import Town from './components/Town';
 import Presentation from './components/Presentation';
 import Scroll from "./components/Scroll";
 import Store from './components/Store';
-import WelcomeServices from "./components/WelcomeServices";
+import Services from "./components/Services";
 import Banner from "./components/Banner";
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
         <Route path="/" element={
           <>
             <Presentation />
-            <WelcomeServices />
+            <Services />
             {/* <Banner /> */}
             {/* <Gallery /> */}
             {/* <Location /> */}
