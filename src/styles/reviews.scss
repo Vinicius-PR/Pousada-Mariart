@@ -1,0 +1,14 @@
+@use './colors';
+
+.reviews {
+  h1 {
+    margin-bottom: 2rem;
+  }
+}
+
+.review-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: auto;
+}

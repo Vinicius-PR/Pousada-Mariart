@@ -4,10 +4,11 @@ import locationImg from '../assets/servicesImg/location.png'
 import roomImg from '../assets/servicesImg/room.png'
 
 import "../styles/Services.scss"
+import ButtonReservation from './ButtonReservation'
 
 export default function Services() {
   return (
-    <section className="services">
+    <section className="services marging-top-responsive">
 
       <div className="coffee">
         <div className="coffee__content">
@@ -84,6 +85,10 @@ export default function Services() {
         <div className="location__image">
           <img src={locationImg} alt="Localização da pousada" />
         </div>
+      </div>
+
+      <div className="services__buttonReservation">
+        <ButtonReservation/>
       </div>
 
     </section>

@@ -18,6 +18,7 @@
 
 .heading-1 {
   font-size: 2.625rem; // 42px
+  text-align: center;
 
   @media (max-width: 810px) {
     font-size: 2rem;
@@ -47,8 +48,20 @@
     font-size: 1.2rem;
   }
 
+  // @media (max-width: 600px) {
+  //   font-size: 1.1rem;
+  // }
+}
+
+.marging-top-responsive {
+  margin: 4rem auto 0; //64px
+
+  @media (max-width: 810px) {
+    margin: 3rem auto 0;
+  }
+
   @media (max-width: 600px) {
-    font-size: 1rem;
+    margin: 2rem auto 0;
   }
 }
 
@@ -107,6 +120,10 @@ p {
 
 // These styles overwrite the ones that have inside the Swiper package
 
+.mySwiper {
+  height: 31.25rem;
+}
+
 .swiper {
   max-width: 1440px;
 }
@@ -114,8 +131,8 @@ p {
 .swiper-slide img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 100%;  
+  object-fit: contain;
 }
 
 .swiper-button-next, .swiper-button-prev {

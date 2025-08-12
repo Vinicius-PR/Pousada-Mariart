@@ -1,9 +1,3 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper/modules";
-
 // Images Galeria
 import Img1 from "../assets/gallery/gallery 1.jpg"
 import Img2 from "../assets/gallery/gallery 2.jpg"
@@ -16,88 +10,150 @@ import Img8 from "../assets/gallery/gallery 8.jpg"
 import Img9 from "../assets/gallery/gallery 9.jpg"
 import Img10 from "../assets/gallery/gallery 10.jpg"
 
+import Lightbox from "yet-another-react-lightbox";
+import Inline from "yet-another-react-lightbox/plugins/inline";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import Counter from "yet-another-react-lightbox/plugins/counter";
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/counter.css";
+
 import "../styles/gallery.scss";
+import { useState } from 'react';
 
 export default function Gallery() {
-  const pagination = {
-    clickable: true,
-    renderBullet: function (index: number, className: string) {
-      return '<span class="' + className + '">' + (index + 1) + "</span>";
-    },
+  
+  const [open, setOpen] = useState(false)
+  const [index, setIndex] = useState(0);
+  const toggleOpen = (state: boolean) => () => setOpen(state);
+  
+  const updateIndex = (when: boolean) => ({ index: current }: { index: number }) => {
+    if (when === open) {
+      setIndex(current);
+    }
   };
 
   return (
-    <>
-      <h1 className="global_titles">Galeria</h1>
-      <Swiper
-        slidesPerView={1}
-        pagination={pagination}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-        className="mySwiper"
-        loop={true}
-      >
-        <SwiperSlide>
-          <div>
-            <img src={Img1} alt="galeria imagem 1" />
-          </div>
-        </SwiperSlide>
+    <section className="gallery marging-top-responsive">
 
-        <SwiperSlide>
-          <div>
-            <img src={Img2} alt="galeria imagem 2" />
-          </div>
-        </SwiperSlide>
+      <h1 className="heading-1">Galeria</h1>
 
-        <SwiperSlide>
-          <div>
-            <img src={Img3} alt="galeria imagem 3" />
-          </div>
-        </SwiperSlide>
+      <Lightbox
+        index={index}
+        slides={[
+          {
+            src: Img1,
+            alt: 'first image Gallery'
+          },
+          {
+            src: Img2,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: Img3,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: Img4,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: Img5,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: Img6,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: Img7,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: Img8,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: Img9,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: Img10,
+            alt: 'Second image Gallery'
+          }
+        ]}
+        plugins={[Inline, Counter]}
+        on={{
+          view: updateIndex(false),
+          click: toggleOpen(true),
+        }}
+        carousel={{
+          padding: 0,
+          spacing: 0,
+          imageFit: "cover",
+        }}
+        inline={{
+          style: {
+            width: "100%",
+            maxWidth: "900px",
+            aspectRatio: "3 / 2",
+            margin: "0 auto",
+          },
+        }}
+      />
 
-        <SwiperSlide>
-          <div>
-            <img src={Img4} alt="galeria imagem 4" />
-          </div>
-        </SwiperSlide>
+      <Lightbox
+        open={open}
+        plugins={[Zoom, Counter]}
+        counter={{ container: { style: { top: "unset", bottom: 0 } } }}
+        close={toggleOpen(false)}
+        index={index}
+        slides={[
+          {
+            src: Img1,
+            alt: 'first image Gallery'
+          },
+          {
+            src: Img2,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: Img3,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: Img4,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: Img5,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: Img6,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: Img7,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: Img8,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: Img9,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: Img10,
+            alt: 'Second image Gallery'
+          }
+        ]}
+        on={{ view: updateIndex(true) }}
+        animation={{ fade: 0 }}
+        controller={{ closeOnPullDown: true, closeOnBackdropClick: true }}
+      />
 
-        <SwiperSlide>
-          <div>
-            <img src={Img5} alt="galeria imagem 5" />
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <div>
-            <img src={Img6} alt="galeria imagem 6" />
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <div>
-            <img src={Img7} alt="galeria imagem 7" />
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <div>
-            <img src={Img8} alt="galeria imagem 8" />
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <div>
-            <img src={Img9} alt="galeria imagem 9" />
-          </div>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <div>
-            <img src={Img10} alt="galeria imagem 10" />
-          </div>
-        </SwiperSlide>
-
-      </Swiper>
-    </>
+    </section>
   );
 }

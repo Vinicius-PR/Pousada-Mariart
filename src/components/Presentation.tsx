@@ -1,7 +1,4 @@
-import "../styles/presentation.scss"
 import ButtonReservation from "./ButtonReservation"
-import { MdOutlineKeyboardArrowLeft } from "react-icons/md"
-import { MdOutlineKeyboardArrowRight } from "react-icons/md"
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,6 +11,7 @@ import 'swiper/css/navigation';
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 
+import "../styles/presentation.scss"
 
 export default function Presentation() {
   return (
