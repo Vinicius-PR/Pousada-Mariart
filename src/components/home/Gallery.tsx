@@ -1,14 +1,14 @@
 // Images Galeria
-import Img1 from "../assets/gallery/gallery 1.jpg"
-import Img2 from "../assets/gallery/gallery 2.jpg"
-import Img3 from "../assets/gallery/gallery 3.jpg"
-import Img4 from "../assets/gallery/gallery 4.jpg"
-import Img5 from "../assets/gallery/gallery 5.jpg"
-import Img6 from "../assets/gallery/gallery 6.jpg"
-import Img7 from "../assets/gallery/gallery 7.jpg"
-import Img8 from "../assets/gallery/gallery 8.jpg"
-import Img9 from "../assets/gallery/gallery 9.jpg"
-import Img10 from "../assets/gallery/gallery 10.jpg"
+import Img1 from "../../assets/gallery/gallery 1.jpg"
+import Img2 from "../../assets/gallery/gallery 2.jpg"
+import Img3 from "../../assets/gallery/gallery 3.jpg"
+import Img4 from "../../assets/gallery/gallery 4.jpg"
+import Img5 from "../../assets/gallery/gallery 5.jpg"
+import Img6 from "../../assets/gallery/gallery 6.jpg"
+import Img7 from "../../assets/gallery/gallery 7.jpg"
+import Img8 from "../../assets/gallery/gallery 8.jpg"
+import Img9 from "../../assets/gallery/gallery 9.jpg"
+import Img10 from "../../assets/gallery/gallery 10.jpg"
 
 import Lightbox from "yet-another-react-lightbox";
 import Inline from "yet-another-react-lightbox/plugins/inline";
@@ -17,7 +17,7 @@ import Counter from "yet-another-react-lightbox/plugins/counter";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/counter.css";
 
-import "../styles/gallery.scss";
+import "../../styles/home/gallery.scss";
 import { useState } from 'react';
 
 export default function Gallery() {

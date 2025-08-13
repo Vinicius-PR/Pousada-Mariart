@@ -1,4 +1,4 @@
-import "../styles/reviews.scss"
+import "../../styles/home/reviews.scss"
 
 export default function Reviews() {
   return (

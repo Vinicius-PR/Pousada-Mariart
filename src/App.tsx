@@ -1,17 +1,20 @@
 import { useEffect } from "react";
-
 import { Routes, Route } from "react-router-dom";
 
+// Components that are used in all pages
 import Header from './components/Header';
 import Scroll from "./components/Scroll";
-import Presentation from './components/Presentation';
-import Services from "./components/Services";
-import Reviews from "./components/Reviews";
+import Footer from './components/Footer';
+
+// Components used in the Home page only
+import Presentation from './components/home/Presentation';
+import Services from "./components/home/Services";
+import Reviews from "./components/home/Reviews";
+
 
 import AboutUs from './components/AboutUs';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
-import Gallery from './components/Gallery';
+import Gallery from './components/home/Gallery';
 import Location from './components/Location';
 import Town from './components/Town';
 import Store from './components/Store';
@@ -38,18 +41,17 @@ function App() {
             <Services />
             <Reviews />
             <Gallery />
-            {/* <Location /> */}
           </>
         }
         />
 
         <Route path="about" element={<AboutUs />} />
         <Route path="town" element={<Town />} />
-        <Route path="store" element={<Store />} />
+        {/* <Route path="store" element={<Store />} /> */}
         <Route path="contact" element={<Contact />} />
       </Routes>
 
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

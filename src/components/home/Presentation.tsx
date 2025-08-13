@@ -1,4 +1,4 @@
-import ButtonReservation from "./ButtonReservation"
+import ButtonReservation from "../ButtonReservation"
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,7 +11,7 @@ import 'swiper/css/navigation';
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 
-import "../styles/presentation.scss"
+import "../../styles/home/presentation.scss"
 
 export default function Presentation() {
   return (

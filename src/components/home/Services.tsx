@@ -1,10 +1,10 @@
-import coffeeImg from '../assets/servicesImg/coffee.png'
-import internetImg from '../assets/servicesImg/internet.png'
-import locationImg from '../assets/servicesImg/location.png'
-import roomImg from '../assets/servicesImg/room.png'
+import coffeeImg from '../../assets/servicesImg/coffee.png'
+import internetImg from '../../assets/servicesImg/internet.png'
+import locationImg from '../../assets/servicesImg/location.png'
+import roomImg from '../../assets/servicesImg/room.png'
 
-import "../styles/Services.scss"
-import ButtonReservation from './ButtonReservation'
+import "../../styles/home/Services.scss"
+import ButtonReservation from '../ButtonReservation'
 
 export default function Services() {
   return (
