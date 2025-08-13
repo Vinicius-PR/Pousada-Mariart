@@ -110,7 +110,6 @@
 
     &-item {
       background-color: colors.$orange-brown;
-      padding: 0.625rem 1.25rem;
       border-radius: 10px;
       transition: all 0.2s;
 
@@ -122,12 +121,17 @@
         background-color: colors.$dark-brown;
       }
 
-      @media (max-width: 810px) {
-        padding: 0.4rem 1rem;
-      }
-
-      @media (max-width: 660px) {
+      a {
         padding: 0.625rem 1.25rem;
+        display: inline-block;
+
+        @media (max-width: 810px) {
+          padding: 0.4rem 1rem;
+        }
+
+        @media (max-width: 660px) {
+          padding: 0.625rem 1.25rem;
+        }
       }
     }
   }
