@@ -10,14 +10,12 @@ import Footer from './components/Footer';
 import Presentation from './components/home/Presentation';
 import Services from "./components/home/Services";
 import Reviews from "./components/home/Reviews";
-
-
-import AboutUs from './components/AboutUs';
-import Contact from './components/Contact';
 import Gallery from './components/home/Gallery';
-import Location from './components/Location';
-import Town from './components/Town';
-import Store from './components/Store';
+
+
+import Contact from './components/contact/Contact';
+import Location from './components/location/Location';
+import City from './components/city/City';
 
 function App() {
 
@@ -45,9 +43,9 @@ function App() {
         }
         />
 
-        <Route path="about" element={<AboutUs />} />
-        <Route path="town" element={<Town />} />
-        {/* <Route path="store" element={<Store />} /> */}
+        <Route path="location" element={<Location />} />
+        <Route path="events" element={<></>} />
+        <Route path="city" element={<City />} />
         <Route path="contact" element={<Contact />} />
       </Routes>
 
