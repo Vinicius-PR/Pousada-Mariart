@@ -54,11 +54,7 @@
 }
 
 .marging-top-responsive {
-  margin: 4rem auto 0; //64px
-
-  @media (max-width: 810px) {
-    margin: 3rem auto 0;
-  }
+  margin: 3rem auto 0; //48px
 
   @media (max-width: 600px) {
     margin: 2rem auto 0;

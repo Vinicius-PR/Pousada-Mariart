@@ -15,7 +15,7 @@ import "../../styles/home/presentation.scss"
 
 export default function Presentation() {
   return (
-    <section className="presentation">
+    <section className="presentation marging-top-responsive">
 
       <div className="presentation__title">
         <h1 className="heading-1">Pousada Mariart</h1>

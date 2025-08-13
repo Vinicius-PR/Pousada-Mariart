@@ -1,34 +1,38 @@
 @use "../colors";
 
 .location {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  max-width: 1320px;
+  padding: 0 1rem;
 
-  &--card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-    padding: 1rem 6rem;
-    background-color: colors.$yellow-950;
-    color: white;
-    height: 100%;
+  &__map {  
+    margin: 2rem auto;
+  }
 
-    img {
-      border-radius: 50%;
-      width: 8rem;
-      height: 8rem;
+  &__details {
+    margin-bottom: 2rem;
+    h2 {
+      margin-bottom: 2rem;
     }
 
-    @media (max-width: 1040px) {
-      padding: 1rem 3rem;
+    p {
+      margin-bottom: 1.25rem;
+    }
+
+    ul {
+      margin-left: 2rem;
+      li {
+        list-style: disc;
+      }
     }
   }
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
+  &__inn {
+    h4 {
+      margin-bottom: 1rem;
+    }
 
+    p:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
 }

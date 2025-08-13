@@ -67,8 +67,8 @@ export default function Services() {
         </div>
       </div>
 
-      <div className="location">
-        <div className="location__content">
+      <div className="locationService">
+        <div className="locationService__content">
           <h3 className="heading-3">Localização</h3>
           <h4 className="title bold">Localização privilegiada</h4>
           <p>
@@ -82,7 +82,7 @@ export default function Services() {
           </p>
         </div>
         
-        <div className="location__image">
+        <div className="locationService__image">
           <img src={locationImg} alt="Localização da pousada" />
         </div>
       </div>
