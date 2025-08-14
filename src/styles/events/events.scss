@@ -1,0 +1,55 @@
+@use "../colors";
+
+.events {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  &__text {
+    margin: 2rem 0;
+    p:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__month {
+    margin-bottom: 2rem;
+
+    &__event {
+      margin-top: 1.25rem;
+
+      &__title {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.55rem;
+      }
+
+      &__details {
+        margin-left: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+
+        @media (max-width: 426px) {
+          margin-left: 0rem;
+        }
+      }
+
+      &__link {
+        color: black;
+        padding: 0.66rem 1.375rem;
+        border-radius: 15px;
+        background-color: colors.$warm-beige;
+        display: inline-block;
+        width: fit-content;
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: colors.$orange-brown;
+          color: colors.$white;
+        }
+      }
+    }
+  }
+}

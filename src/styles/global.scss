@@ -96,7 +96,6 @@ li {
 a:link,
 a:visited {
   text-decoration: none;
-  color: white;
 }
 
 body {
@@ -106,12 +105,6 @@ body {
 
 p {
   font-size: 1rem;
-}
-
-.global_titles {
-  color: colors.$title;
-  padding: 2rem 0;
-  font-size: 2rem;
 }
 
 // These styles overwrite the ones that have inside the Swiper package
@@ -132,7 +125,7 @@ p {
 }
 
 .swiper-button-next, .swiper-button-prev {
-  color: white;
+  color: colors.$white;
 }
 .swiper-pagination-bullet {
   background: rgba(255, 255, 255);

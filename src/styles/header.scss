@@ -124,6 +124,7 @@
       a {
         padding: 0.625rem 1.25rem;
         display: inline-block;
+        color: colors.$white;
 
         @media (max-width: 810px) {
           padding: 0.4rem 1rem;

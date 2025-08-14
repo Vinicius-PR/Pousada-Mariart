@@ -16,6 +16,7 @@ import Gallery from './components/home/Gallery';
 import Contact from './components/contact/Contact';
 import Location from './components/location/Location';
 import City from './components/city/City';
+import Events from "./components/events/Events";
 
 function App() {
 
@@ -44,7 +45,7 @@ function App() {
         />
 
         <Route path="location" element={<Location />} />
-        <Route path="events" element={<></>} />
+        <Route path="events" element={<Events />} />
         <Route path="city" element={<City />} />
         <Route path="contact" element={<Contact />} />
       </Routes>
