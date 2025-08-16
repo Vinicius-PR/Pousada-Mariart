@@ -1,45 +1,136 @@
+import { useState } from "react";
 import "../../styles/city/city.scss";
-import tearImg from "../../assets/resende costa/tear.jpg";
+
+// Galery Images of the City
+import cityImag_1 from "../../assets/cityImages/city_1.jpg"
+import cityImag_2 from "../../assets/cityImages/city_2.jpg"
+import cityImag_3 from "../../assets/cityImages/city_3.jpg"
+import cityImag_4 from "../../assets/cityImages/city_4.jpg"
+import cityImag_5 from "../../assets/cityImages/city_5.jpg"
+
+import Lightbox from "yet-another-react-lightbox";
+import Inline from "yet-another-react-lightbox/plugins/inline";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import Counter from "yet-another-react-lightbox/plugins/counter";
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/counter.css";
 
 export default function City() {
-  return (
-    <section>
-      <h1 className="global_titles">Resende Costa</h1>
 
-      <div className="town">
-        <img src={tearImg} alt="Tear de Resende Costa" />
-        <p>
-          Bem-vindo a Resende Costa, a cidade do artesanato em Minas Gerais!
-        </p>
-        <br />
-        <p>
-          Localizada em um cenário encantador, Resende Costa é um verdadeiro tesouro para os amantes de artesanato. Nossas ruas pitorescas abrigam uma infinidade de lojas de artesanato, onde você encontrará verdadeiras obras de arte feitas à mão.
-        </p>
-        <br />
-        <p>
-          O destaque do artesanato local está na produção de tapetes e têxteis artesanais. Aqui, habilidosos artesãos dedicam-se a tecer tapetes magníficos, cortinas encantadoras, almofadas coloridas, peças americanas, jogos americanos, toalhas de mesa e muito mais. Cada peça é cuidadosamente confeccionada, utilizando técnicas tradicionais transmitidas de geração em geração.
-        </p>
-        <br />
-        <p>
-          Ao visitar as lojas de Resende Costa, você terá a oportunidade de explorar uma variedade de estilos, padrões e cores deslumbrantes. Cada tapete conta uma história única, refletindo a riqueza da nossa cultura e tradição. Os detalhes meticulosos e a qualidade impecável dessas peças demonstram a dedicação e o talento dos nossos artesãos locais.
-        </p>
-        <br />
-        <p>
-          Além de sermos conhecidos pelos nossos tapetes, Resende Costa também oferece uma ampla gama de outros produtos artesanais. Você encontrará belíssimas peças de madeira, movéis e uma infinidade de objetos decorativos que irão encantar os seus sentidos.
-        </p>
-        <br />
-        <p>
-          Ao passear pelas ruas da cidade, você sentirá a atmosfera criativa e acolhedora que permeia o local. Nossos artesãos estão sempre dispostos a compartilhar suas histórias e inspirações, tornando a sua experiência de compra ainda mais especial.
-        </p>
-        <br />
-        <p>
-          Resende Costa é o destino perfeito para os apreciadores de artesanato, onde a tradição e a criatividade se encontram. Venha explorar nossas lojas encantadoras, mergulhar na cultura artesanal e levar para casa peças únicas e cheias de história.
-        </p>
-        <br />
-        <p>
-          Resende Costa espera por você, para compartilhar a beleza e a autenticidade do nosso artesanato. Prepare-se para se encantar e se inspirar em cada detalhe artesanal que encontrará em nosso acolhedor pedaço de Minas Gerais.
-        </p>
+  const [open, setOpen] = useState(false)
+    const [index, setIndex] = useState(0);
+    const toggleOpen = (state: boolean) => () => setOpen(state);
+    
+    const updateIndex = (when: boolean) => ({ index: current }: { index: number }) => {
+      if (when === open) {
+        setIndex(current);
+      }
+    };
+
+  return (
+    <section className="city marging-top-responsive">
+
+      <h1 className="heading-1">Resende Costa</h1>
+
+      <Lightbox
+        index={index}
+        slides={[
+          {
+            src: cityImag_1,
+            alt: 'first image Gallery'
+          },
+          {
+            src: cityImag_2,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: cityImag_3,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: cityImag_4,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: cityImag_5,
+            alt: 'Second image Gallery'
+          }
+        ]}
+        plugins={[Inline, Counter]}
+        on={{
+          view: updateIndex(false),
+          click: toggleOpen(true),
+        }}
+        carousel={{
+          padding: 0,
+          spacing: 0,
+          imageFit: "cover",
+        }}
+        inline={{
+          style: {
+            width: "100%",
+            maxWidth: "900px",
+            aspectRatio: "3 / 2",
+            margin: "0 auto",
+          },
+        }}
+      />
+
+      <Lightbox
+        open={open}
+        plugins={[Zoom, Counter]}
+        counter={{ container: { style: { top: "unset", bottom: 0 } } }}
+        close={toggleOpen(false)}
+        index={index}
+        slides={[
+          {
+            src: cityImag_1,
+            alt: 'first image Gallery'
+          },
+          {
+            src: cityImag_2,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: cityImag_3,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: cityImag_4,
+            alt: 'Second image Gallery'
+          },
+          {
+            src: cityImag_5,
+            alt: 'Second image Gallery'
+          }
+        ]}
+        on={{ view: updateIndex(true) }}
+        animation={{ fade: 0 }}
+        controller={{ closeOnPullDown: true, closeOnBackdropClick: true }}
+      />
+
+      <div className="city__text">
+        <h2 className="heading-2">Resende Costa, um encanto das Minas Gerais</h2>
+
+        <div className="city__text__content">
+          <p>
+            Resende Costa é uma charmosa cidade do interior de Minas Gerais, conhecida por sua tradição no artesanato em tear. Passear por suas ruas é se encantar com a cultura, a hospitalidade mineira e a beleza das montanhas.
+          </p>
+
+          <p>
+            Além das lojinhas de artesanato, onde é possível encontrar peças feitas à mão com muito carinho, a cidade oferece uma atmosfera tranquila, perfeita para quem busca descanso, simplicidade e contato com a natureza.
+          </p>
+
+          <p>
+            Cercada por paisagens típicas da Serra da Mantiqueira, Resende Costa também está próxima de outras cidades históricas, como São João del-Rei e Tiradentes, sendo um destino ideal para quem deseja explorar o melhor do roteiro turístico da Estrada Real.
+          </p>
+
+          <p>
+            Venha conhecer Resende Costa e se apaixonar pelo charme, pelas tradições e pela autenticidade desse pedacinho especial de Minas Gerais.
+          </p>
+        </div>
       </div>
+
     </section>
   )
 }

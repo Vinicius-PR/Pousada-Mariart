@@ -12,11 +12,17 @@ import Services from "./components/home/Services";
 import Reviews from "./components/home/Reviews";
 import Gallery from './components/home/Gallery';
 
-
-import Contact from './components/contact/Contact';
+// Compnent used in the Location page only
 import Location from './components/location/Location';
-import City from './components/city/City';
+
+// Compnent used in the Event page only
 import Events from "./components/events/Events";
+
+// Compnent used in the City page only
+import City from './components/city/City';
+
+// Compnent used in the Contact page only
+import Contact from './components/contact/Contact';
 
 function App() {
 

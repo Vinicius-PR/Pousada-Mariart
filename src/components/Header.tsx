@@ -74,7 +74,7 @@ export default function Header() {
           </li>
 
           <li className="header__links-item link-font">
-            <Link to="/town" data-text="Cidade" onClick={() => setIsMenuOpen(false)}>Cidade</Link>
+            <Link to="/city" data-text="Cidade" onClick={() => setIsMenuOpen(false)}>Cidade</Link>
           </li>
 
           <li className="header__links-item link-font">
