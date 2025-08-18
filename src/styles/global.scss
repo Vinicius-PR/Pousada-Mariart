@@ -6,6 +6,8 @@
   box-sizing: border-box;
 }
 
+// This part of the code is comment. May use in the future.
+
 // html {
 //   @media (max-width: 768px) {
 //     font-size: 93.75%; //15 px
@@ -15,6 +17,8 @@
 //     font-size: 87.5%; // 14px
 //   }
 // }
+
+// This part of the code is comment. May use in the future
 
 .heading-1 {
   font-size: 2.625rem; // 42px
@@ -47,10 +51,6 @@
   @media (max-width: 810px) {
     font-size: 1.2rem;
   }
-
-  // @media (max-width: 600px) {
-  //   font-size: 1.1rem;
-  // }
 }
 
 .marging-top-responsive {
@@ -103,9 +103,6 @@ body {
   margin: 0 auto;
 }
 
-p {
-  font-size: 1rem;
-}
 
 // These styles overwrite the ones that have inside the Swiper package
 

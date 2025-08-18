@@ -32,28 +32,30 @@ export default function Contact() {
   }
 
   return (
-    <section className="contacts">
+    <section className="contacts marging-top-responsive">
 
-      <h1 className="global_titles">Formulário</h1>
+      <h1 className="heading-1">Formulário</h1>
 
       <form className="contacts__form">
 
-        <label htmlFor='name'><strong>Nome*</strong></label>
-        <input
-          type='text'
-          name='name'
-          id='name'
-          placeholder='Seu nome'
-          onChange={(event) => setName(event.target.value)}
-        />
-        <span className="contacts__form--errorMessage"></span>
+        <div className="contacts__form__name">
+          <label htmlFor='name'><strong>Nome*</strong></label>
+          <input
+            type='text'
+            name='name'
+            id='name'
+            placeholder='Seu nome'
+            onChange={(event) => setName(event.target.value)}
+          />
+        </div>
 
-        <div className="contacts__form--dates">
-          <div className="contacts__form--dates__date_in">
+        <div className="contacts__form__dates">
+          <div className="contacts__form__dates__date-in">
             <label htmlFor='date_in'><strong>Data de Entrada*</strong></label>
             <DatePicker
               name='date_in'
               id='date_in'
+              className="myDatePicker"
               onChange={(e) => {
                 if(e == null) {
                   setDateIn("Não Definido - Error")
@@ -74,7 +76,7 @@ export default function Contact() {
             />
           </div>
 
-          <div className="contacts__form--dates__date_out">
+          <div className="contacts__form__dates__date-out">
             <label htmlFor='date_out'><strong>Data de Saida*</strong></label>
             <DatePicker
               name="date_out"
@@ -100,27 +102,28 @@ export default function Contact() {
           </div>
         </div>
         
-        <label htmlFor="message"><strong>Mensagem*</strong></label>
-        <p>Me conte mais sobre a sua estadia. Se é para casal ou casal com filhos...*</p>
+        <div className="contacts__form__message">
+          <label htmlFor="message"><strong>Mensagem*</strong></label>
+          <p>Me conte mais sobre a sua estadia. Se é para casal ou casal com filhos...*</p>
 
-        <textarea
-          name='message'
-          id='message'
-          placeholder='Sua mensagem'
-          rows={4}
-          maxLength={100}
-          onChange={(e) => setMessage(e.target.value)}
-        >
-        </textarea>
-        <div className="the-count">
-          <span id="current">{message.length}</span>
-          <span id="maximum">/ 100</span>
+          <textarea
+            name='message'
+            id='message'
+            placeholder='Sua mensagem'
+            rows={4}
+            maxLength={100}
+            onChange={(e) => setMessage(e.target.value)}
+          >
+          </textarea>
+          <div className="the-count">
+            <span id="current">{message.length}</span>
+            <span id="maximum">/ 100</span>
+          </div>
         </div>
-        <span className="contacts__form--errorMessage"></span>
 
 
         <button
-          className="contacts__form--button"
+          className="contacts__form__button"
           type="button"
           onClick={handleClick}
           disabled={name === '' || dateIn === '' || dateOut === '' || message === ''}
