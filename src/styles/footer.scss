@@ -3,11 +3,6 @@
 .footer {
   background-color: colors.$light-gray;
 
-  &__icon {
-    width: 24px;
-    height: 24px;
-  }
-
   &__content {
     margin: 0 auto;
     max-width: 1440px;
@@ -68,6 +63,14 @@
       &__icons {
         display: flex;
         justify-content: space-between;
+
+        svg {
+          color: black;
+
+          &:hover {
+            color: rgb(141, 135, 135);
+          }
+        }
       }
     }
 

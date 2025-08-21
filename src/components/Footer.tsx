@@ -56,9 +56,17 @@ export default function Footer() {
         <div className="footer__content__social">
           <h3 className="heading-3">Redes Sociais</h3>
           <div className="footer__content__social__icons">
-            <FaInstagram className="footer__icon"/>
-            <FaFacebookSquare className="footer__icon" />
-            <FaWhatsappSquare className="footer__icon"/>
+            <a href="https://www.instagram.com/pousadamariart?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+              <FaInstagram size={26} className="footer__icon"/>
+            </a>
+
+            <a href="https://www.facebook.com/profile.php?id=100067706226352" target="_blank">
+              <FaFacebookSquare size={26} className="footer__icon" />
+            </a>
+
+            <a href="https://wa.me/553299349064?text=Ola%2C%20eu%20estava%20navegando%20no%20seu%20site.%20Gostaria%20de%20algumas%20informa%C3%A7%C3%B5es." target="_blank">
+              <FaWhatsappSquare size={27} className="footer__icon"/>
+            </a>
           </div>
         </div>
 
