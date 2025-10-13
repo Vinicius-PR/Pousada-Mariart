@@ -51,7 +51,7 @@ export default function Header() {
       <nav className={`${"header__nav"} ${isMenuOpen ? "open" : ""}`}>
         <div className='header__title'>
           <Link to="/">
-            <img src={bedIcon} alt="Pousada Logo" onClick={() => setIsMenuOpen(false)} />
+            <img src={bedIcon} alt="Pousada Logo Cama" onClick={() => setIsMenuOpen(false)} />
           </Link>
 
           <h3 className='heading-3 bold'>
@@ -62,23 +62,23 @@ export default function Header() {
         <ul className="header__links">
 
           <li className="header__links-item link-font">
-            <Link to="/" data-text="Inicio" onClick={() => setIsMenuOpen(false)}>Inicio</Link>
+            <Link to="/" onClick={() => setIsMenuOpen(false)}>Inicio</Link>
           </li>
 
           <li className="header__links-item link-font">
-            <Link to="/location" data-text="Localização" onClick={() => setIsMenuOpen(false)}>Localização</Link>
+            <Link to="/location" onClick={() => setIsMenuOpen(false)}>Localização</Link>
           </li>
 
           <li className="header__links-item link-font">
-            <Link to="/events" data-text="Eventos" onClick={() => setIsMenuOpen(false)}>Eventos</Link>
+            <Link to="/events" onClick={() => setIsMenuOpen(false)}>Eventos</Link>
           </li>
 
           <li className="header__links-item link-font">
-            <Link to="/city" data-text="Cidade" onClick={() => setIsMenuOpen(false)}>Cidade</Link>
+            <Link to="/city" onClick={() => setIsMenuOpen(false)}>Cidade</Link>
           </li>
 
           <li className="header__links-item link-font">
-            <Link to="/contact" data-text="Contato" onClick={() => setIsMenuOpen(false)}>Contato</Link>
+            <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contato</Link>
           </li>
         </ul>
       </nav>
