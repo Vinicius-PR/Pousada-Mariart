@@ -3,7 +3,7 @@ import "../../styles/home/reviews.scss"
 export default function Reviews() {
   return (
     <div className="reviews marging-top-responsive">
-      <h1 className="heading-1">Reviews</h1>
+      <h1 className="heading-1">Avaliações</h1>
 
       {/* <!-- Elfsight Google Reviews | Untitled Google Reviews --> */}
       

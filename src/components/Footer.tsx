@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="footer__content">
 
         <div className="footer__content__link">
-          <img src={bedIcon} alt="Pousada Logo" />
+          <img src={bedIcon} alt="" />
           <h3 className="heading-3">Pousada <br/> Mariart</h3>
         </div>
 
@@ -56,15 +56,15 @@ export default function Footer() {
         <div className="footer__content__social">
           <h3 className="heading-3">Redes Sociais</h3>
           <div className="footer__content__social__icons">
-            <a href="https://www.instagram.com/pousadamariart?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+            <a href="https://www.instagram.com/pousadamariart?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer">
               <FaInstagram size={26} className="footer__icon"/>
             </a>
 
-            <a href="https://www.facebook.com/profile.php?id=100067706226352" target="_blank">
+            <a href="https://www.facebook.com/profile.php?id=100067706226352" target="_blank" rel="noreferrer">
               <FaFacebookSquare size={26} className="footer__icon" />
             </a>
 
-            <a href="https://wa.me/553299349064?text=Ola%2C%20eu%20estava%20navegando%20no%20seu%20site.%20Gostaria%20de%20algumas%20informa%C3%A7%C3%B5es." target="_blank">
+            <a href="https://wa.me/553299349064?text=Ola%2C%20eu%20estava%20navegando%20no%20seu%20site.%20Gostaria%20de%20algumas%20informa%C3%A7%C3%B5es." target="_blank" rel="noreferrer">
               <FaWhatsappSquare size={27} className="footer__icon"/>
             </a>
           </div>
@@ -93,7 +93,7 @@ export default function Footer() {
 
           <p className="footer__content__contact__phone-text">
             <a href="https://wa.me/553299349064?text=Ola%2C%20eu%20estava%20navegando%20no%20seu%20site.%20Gostaria%20de%20algumas%20informa%C3%A7%C3%B5es.
-            " target="_blank">(32) 99934-9064</a>
+            " target="_blank" rel="noreferrer">(32) 99934-9064</a>
           </p>
           
         </div>

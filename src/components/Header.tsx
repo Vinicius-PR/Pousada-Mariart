@@ -51,7 +51,7 @@ export default function Header() {
       <nav className={`${"header__nav"} ${isMenuOpen ? "open" : ""}`}>
         <div className='header__title'>
           <Link to="/">
-            <img src={bedIcon} alt="Pousada Logo Cama" onClick={() => setIsMenuOpen(false)} />
+            <img src={bedIcon} alt="" onClick={() => setIsMenuOpen(false)} />
           </Link>
 
           <h3 className='heading-3 bold'>

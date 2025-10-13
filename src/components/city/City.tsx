@@ -37,23 +37,23 @@ export default function City() {
         slides={[
           {
             src: cityImag_1,
-            alt: 'first image Gallery'
+            alt: 'Igreja do Rosário.'
           },
           {
             src: cityImag_2,
-            alt: 'Second image Gallery'
+            alt: 'Sol nascendo sendo visto nas lages de baixo.'
           },
           {
             src: cityImag_3,
-            alt: 'Second image Gallery'
+            alt: 'Igreja Matriz. Nossa Senhora da Penha de França.'
           },
           {
             src: cityImag_4,
-            alt: 'Second image Gallery'
+            alt: 'Tear montado com tapetes abertos no fundo e bolas de retalhos.'
           },
           {
             src: cityImag_5,
-            alt: 'Second image Gallery'
+            alt: 'Uma senhora tecendo um tapete pequeno no tear manual.'
           }
         ]}
         plugins={[Inline, Counter]}
@@ -85,23 +85,23 @@ export default function City() {
         slides={[
           {
             src: cityImag_1,
-            alt: 'first image Gallery'
+            alt: 'Igreja do Rosário.'
           },
           {
             src: cityImag_2,
-            alt: 'Second image Gallery'
+            alt: 'Sol nascendo sendo visto nas lages de baixo.'
           },
           {
             src: cityImag_3,
-            alt: 'Second image Gallery'
+            alt: 'Igreja Matriz. Nossa Senhora da Penha de França.'
           },
           {
             src: cityImag_4,
-            alt: 'Second image Gallery'
+            alt: 'Tear montado com tapetes abertos no fundo e bolas de retalhos.'
           },
           {
             src: cityImag_5,
-            alt: 'Second image Gallery'
+            alt: 'Uma senhora tecendo um tapete pequeno no tear manual.'
           }
         ]}
         on={{ view: updateIndex(true) }}

@@ -42,43 +42,43 @@ export default function Gallery() {
         slides={[
           {
             src: Img1,
-            alt: 'first image Gallery'
+            alt: 'Cama de casal arrumada e com roupas de cama em cima.'
           },
           {
             src: Img2,
-            alt: 'Second image Gallery'
+            alt: 'Duas camas sendo uma de casal e outra de solteiro. Quarto triplo do fundo.'
           },
           {
             src: Img3,
-            alt: 'Second image Gallery'
+            alt: 'Quarto de casal com janela para frente completo.'
           },
           {
             src: Img4,
-            alt: 'Second image Gallery'
+            alt: 'Quarto quadruplo com uma cama de casal e duas de solteiro.'
           },
           {
             src: Img5,
-            alt: 'Second image Gallery'
+            alt: 'Banheiro do quarto. Com box. Completo.'
           },
           {
             src: Img6,
-            alt: 'Second image Gallery'
+            alt: 'Quarto triplo. Uma cama de casal e uma de solteiro. Cama com decoração de ferro.'
           },
           {
             src: Img7,
-            alt: 'Second image Gallery'
+            alt: 'Mesa da area do café com todos os itens. Pães, Pão de queijo, bolos, frios e mais.'
           },
           {
             src: Img8,
-            alt: 'Second image Gallery'
+            alt: 'Frutas servidas na area do café. Banana, mamão, morango, melão.'
           },
           {
             src: Img9,
-            alt: 'Second image Gallery'
+            alt: 'Frente da Pousada Mariart.'
           },
           {
             src: Img10,
-            alt: 'Second image Gallery'
+            alt: 'A vista de um dos quartos da frente.'
           }
         ]}
         plugins={[Inline, Counter]}
@@ -110,43 +110,43 @@ export default function Gallery() {
         slides={[
           {
             src: Img1,
-            alt: 'first image Gallery'
+            alt: 'Cama de casal arrumada e com roupas de cama em cima.'
           },
           {
             src: Img2,
-            alt: 'Second image Gallery'
+            alt: 'Duas camas sendo uma de casal e outra de solteiro. Quarto triplo do fundo.'
           },
           {
             src: Img3,
-            alt: 'Second image Gallery'
+            alt: 'Quarto de casal com janela para frente completo.'
           },
           {
             src: Img4,
-            alt: 'Second image Gallery'
+            alt: 'Quarto quadruplo com uma cama de casal e duas de solteiro.'
           },
           {
             src: Img5,
-            alt: 'Second image Gallery'
+            alt: 'Banheiro do quarto. Com box. Completo.'
           },
           {
             src: Img6,
-            alt: 'Second image Gallery'
+            alt: 'Quarto triplo. Uma cama de casal e uma de solteiro. Cama com decoração de ferro.'
           },
           {
             src: Img7,
-            alt: 'Second image Gallery'
+            alt: 'Mesa da area do café com todos os itens. Pães, Pão de queijo, bolos, frios e mais.'
           },
           {
             src: Img8,
-            alt: 'Second image Gallery'
+            alt: 'Frutas servidas na area do café. Banana, mamão, morango, melão.'
           },
           {
             src: Img9,
-            alt: 'Second image Gallery'
+            alt: 'Frente da Pousada Mariart.'
           },
           {
             src: Img10,
-            alt: 'Second image Gallery'
+            alt: 'A vista de um dos quartos da frente.'
           }
         ]}
         on={{ view: updateIndex(true) }}

@@ -1,7 +1,7 @@
-import coffeeImg from '../../assets/servicesImg/coffee.png'
-import internetImg from '../../assets/servicesImg/internet.png'
-import locationImg from '../../assets/servicesImg/location.png'
-import roomImg from '../../assets/servicesImg/room.png'
+import coffeeImg from '../../assets/servicesImg/coffee.jpg'
+import internetImg from '../../assets/servicesImg/internet.jpg'
+import locationImg from '../../assets/servicesImg/location.jpg'
+import roomImg from '../../assets/servicesImg/room.jpg'
 
 import "../../styles/home/Services.scss"
 import ButtonReservation from '../ButtonReservation'
@@ -25,7 +25,7 @@ export default function Services() {
         </div>
 
         <div className="coffee__image">
-          <img src={coffeeImg} alt="Café da pousada" />
+          <img src={coffeeImg} alt="Mesa do café da pousada completa e pronta para servir os hospedes." />
         </div>
       </div>
 
@@ -49,7 +49,7 @@ export default function Services() {
         </div>
         
         <div className="internet__image">
-          <img src={internetImg} alt="Internet da pousada" />
+          <img src={internetImg} alt="Internet rápida. Rede Mesh." />
         </div>
       </div>
 
@@ -73,7 +73,7 @@ export default function Services() {
         </div>
         
         <div className="room__image">
-          <img src={roomImg} alt="Quartos da pousada" />
+          <img src={roomImg} alt="Quarto triplo com varanda e vista para frente." />
         </div>
       </div>
 
@@ -97,7 +97,7 @@ export default function Services() {
         </div>
         
         <div className="locationService__image">
-          <img src={locationImg} alt="Localização da pousada" />
+          <img src={locationImg} alt="Vista de frente do quarto triplo. Varanda." />
         </div>
       </div>
 
