@@ -77,9 +77,14 @@
       font-size: 1.2rem;
       cursor: pointer;
       background-color: rgb(252, 202, 136);
+      border-width: 1px;
 
       &:disabled {
         cursor: not-allowed;
+      }
+
+      &:focus {
+        outline: 2px solid;
       }
     }
 

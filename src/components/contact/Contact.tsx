@@ -41,6 +41,7 @@ export default function Contact() {
         <div className="contacts__form__name">
           <label htmlFor='name'><strong>Nome*</strong></label>
           <input
+            required
             type='text'
             name='name'
             id='name'
@@ -53,6 +54,7 @@ export default function Contact() {
           <div className="contacts__form__dates__date-in">
             <label htmlFor='date_in'><strong>Data de Entrada*</strong></label>
             <DatePicker
+              required
               name='date_in'
               id='date_in'
               className="myDatePicker"
@@ -79,6 +81,7 @@ export default function Contact() {
           <div className="contacts__form__dates__date-out">
             <label htmlFor='date_out'><strong>Data de Saida*</strong></label>
             <DatePicker
+              required
               name="date_out"
               id="date_out"
               onChange={(e) => {
@@ -107,6 +110,7 @@ export default function Contact() {
           <p>Me conte mais sobre a sua estadia. Se é para casal ou casal com filhos...*</p>
 
           <textarea
+            required
             name='message'
             id='message'
             placeholder='Sua mensagem'
