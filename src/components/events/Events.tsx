@@ -19,7 +19,7 @@ const iconsEvent = {
 export default function Events() {
   return (
     <section className="events marging-top-responsive">
-      <h1 className="heading-1">Principais Eventos 2025</h1>
+      <h1 className="heading-1">Principais Eventos 2026</h1>
       <div className="events__text">
         <p>
           Resende Costa é uma cidade que preserva suas tradições com carinho e celebra a cultura mineira durante todo o ano. Ao se hospedar na Pousada Mariart, você fica pertinho de tudo que acontece de mais especial na cidade!
