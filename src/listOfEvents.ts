@@ -42,7 +42,7 @@ export const ListOfEvents:ListOfEventsProps[] = [
         id: "ev-mar-1",
         name: "Enduro das Lages",
         icon: "moto",
-        date: "28/03 a 29/03 (Confirmando!)",
+        date: "28/03 a 29/03",
         description: "O Enduro das Lages é um dos eventos mais tradicionais de Resende Costa, reunindo pilotos e visitantes de várias regiões para percorrer trilhas desafiadoras em meio às belas paisagens naturais da cidade. O evento combina aventura, contato com a natureza e o espírito de confraternização, movimentando o turismo local e criando uma atmosfera vibrante.",
         reservation: "Reservando normal.",
         link: ""
@@ -69,7 +69,7 @@ export const ListOfEvents:ListOfEventsProps[] = [
         date: "29/03 a 06/04",
         description: "A Semana Santa é um dos momentos mais emocionantes e tradicionais do ano em Resende Costa. Com celebrações religiosas marcantes, procissões iluminadas por velas e manifestações culturais que envolvem toda a cidade, esse período convida moradores e visitantes a vivenciarem a fé e a espiritualidade em um ambiente acolhedor e histórico. O silêncio ganha significado e a cidade se transforma em um cenário de devoção e beleza.",
         reservation: "Reservando no minimo 2 diarias no final de semana.",
-        link: ""
+        link: "https://www.instagram.com/p/DVccWi4iUsI/?img_index=1"
       }
     ]
   },
@@ -84,7 +84,7 @@ export const ListOfEvents:ListOfEventsProps[] = [
         date: "04/06 a 07/06",
         description: "A Mostra de Cultura e Artesanato de Resende Costa celebra a tradição e a criatividade que fazem da cidade uma referência nacional no artesanato têxtil. O evento reúne artesãos locais, exposições, apresentações culturais e produtos feitos à mão, proporcionando aos visitantes uma experiência autêntica e rica em história. É uma oportunidade única para conhecer de perto o talento da comunidade e valorizar a cultura que torna Resende Costa tão especial.",
         reservation: "Reservando no minimo 2 diarias no final de semana.",
-        link: ""
+        link: "https://www.instagram.com/mostradeartesanatorc/"
       }
     ]
   },
