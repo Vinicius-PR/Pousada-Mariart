@@ -99,7 +99,7 @@ export const ListOfEvents:ListOfEventsProps[] = [
         date: "16/07 a 19/07",
         description: "A Exposição Agropecuária é tradição certa em Resende Costa. O objetivo principal é a valorização das tradições do campo. Além de exposições, a programação conta com rodeio de animais e shows de artistas com renome nacional e regional.",
         reservation: "Reservando no minimo 2 diarias.",
-        link: ""
+        link: "https://www.instagram.com/p/DXxeuiFieIc/?img_index=1"
       },
       {
         id: "ev-jul-2",
