@@ -144,10 +144,10 @@ export const ListOfEvents:ListOfEventsProps[] = [
         id: "ev-nov-1",
         name: "Festa do Rosário",
         icon: "santa",
-        date: "Data não confirmada",
+        date: "30/10 a 01/11",
         description: "A Festa do Rosário é uma das mais antigas e tradicionais manifestações culturais e religiosas de Resende Costa. Celebrada com muita fé e alegria, ela homenageia Nossa Senhora do Rosário e os santos devotos do povo negro, reunindo irmandades, congadas, moçambiques e guardas de diferentes cidades. Com tambores, cantos e danças, a cidade se enche de cor, ritmo e espiritualidade, mantendo viva a herança afro-brasileira. É um momento de encontro entre gerações, cultura e devoção, que emociona a todos que participam. Além disso, conta com shows e dezenas de barracas vendendo diversos produtos.",
         reservation: "Reservando 1 ou mais diarias.",
-        link: ""
+        link: "https://www.instagram.com/p/Dd373mFFhRX/?img_index=1"
       }
     ]
   },

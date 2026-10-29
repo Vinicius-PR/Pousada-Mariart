@@ -1,3 +1,4 @@
+// @ts-ignore The stylesheet is loaded by the bundler and has no TypeScript declaration.
 import "../../styles/events/events.scss"
 import { ListOfEvents } from "../../listOfEvents"
 
